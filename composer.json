@@ -1,0 +1,21 @@
+{
+    "name": "shivammathur/countrycity",
+    "description": "API to get all countries and all cities in a country.",
+    "keywords": ["cities","countries","php","rest","router", "psr7","geolocation"],
+    "homepage": "http://github.com/shivammathur",
+    "license": "MIT",
+    "version": "1.0.1",
+    "authors": [
+        {
+            "name": "Shivam Mathur",
+            "email": "shivam_jpr@hotmail.com",
+            "homepage": "https://shivammathur.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "slim/slim": "^3.1",
+        "slim/php-view": "^2.0",
+        "monolog/monolog": "^1.17"
+    }
+}
