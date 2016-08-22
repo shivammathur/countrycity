@@ -1,11 +1,14 @@
 <?php
 
+// Get Database Connection ($db)
 require __DIR__.'\db.php';
 
+// Query for cities in a country
 $geodata = $db->geo->findOne([], ["_id" => false, ucwords($data['countryName']) => true]);
+// $geodata = ['countryName'] => ['cityA', 'cityB', 'cityC', ...];                
 
-if($geodata){
-	$cities = array_values($geodata)[0];
+if ($geodata) {
+	$cities = $geodata[ucwords($data['countryName'])];
 	sort($cities);
 	echo json_encode($cities, JSON_UNESCAPED_UNICODE);
 } else {
