@@ -18,5 +18,8 @@
         "slim/php-view": "^2.0",
         "monolog/monolog": "^1.17",
         "mongodb/mongodb": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.5.*"
     }
 }
