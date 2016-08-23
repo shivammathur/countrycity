@@ -12,5 +12,5 @@ before_script:
   - composer install
   - mongod --dbpath=data/db &
   - sleep 3
-script: phpunit
+script: phpunit --configuration phpunit.xml
 
