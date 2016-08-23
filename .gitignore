@@ -1,0 +1,3 @@
+﻿vendor/*
+data/db/journal/*
+logs/*

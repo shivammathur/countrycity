@@ -11,11 +11,11 @@
 	<h2>Setup</h2>
 	<p>
 		<ol>
+			<li>Before installing this API you need to install MongoDB pecl extension by following installation instructions from <a target="_blank" href="http://php.net/manual/en/mongodb.installation.php">here</a></li>
 			<li>Download this API using composer by executing the command > <code>composer global require shivammathur/countrycity "master-dev"</code></li>
 			<li>Then install this API using by executing the command > <code>composer create-project shivammathur/countrycity countrycity "master-dev" --prefer-dist</code></li>
 			<li>Download and install MongoDB from <a target="_blank" href="https://www.mongodb.org/downloads#production">here</a></li>
 			<li>Start MongoDB server using the following command > <code>mongod --dbpath "<?php echo dirname(__DIR__); ?>\data\db"</code></li>
-			<li>Install MongoDB pecl extension by following installation instruction from <a target="_blank" href="http://php.net/manual/en/mongodb.installation.php">here</a></li>
 			<li>You are all set.</li>
 		</ol>
 

@@ -4,6 +4,9 @@
 Country City API is a REST API to get a list of all the countries in the world. It can also be used to get a list of all the cities in a country.
 
 ### Installing the API
+
+- Before installing this API you need to install MongoDB pecl extension by following installation instructions from [here](http://php.net/manual/en/mongodb.installation.php)
+
 - Download this API using [composer](https://getcomposer.org/download/) by executing the command below.
 ```
 composer global require shivammathur/countrycity "master-dev"
@@ -17,15 +20,16 @@ composer create-project shivammathur/countrycity countrycity "master-dev" --pref
 ```
 mongod --dbpath {countrycityapipath}/data/db
 ```
-- Install MongoDB pecl extension by following installation instruction from [here](http://php.net/manual/en/mongodb.installation.php)
 - You are all set.
 
-### Get All Countries
+### API Endpoints
+
+#### Get All Countries
 ```
 /get/countries/
 ```
 
-### Get All Cities in a Country
+#### Get All Cities in a Country
 ```
 /get/cities/{countryName}
 ```
