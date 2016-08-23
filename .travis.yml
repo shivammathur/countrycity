@@ -1,4 +1,18 @@
 language: php
 php:
-  - '5.4'
-  - '5.5'
+  - '5.6'
+  - '7.0'
+before_install:
+  - sudo pip install cpp-coveralls
+  - echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+  - sudo apt-get update
+  - sudo apt-get install -y mongodb-org
+before_script:
+  - wget https://pecl.php.net/get/mongodb-1.1.6.tgz
+  - tar -xzf mongodb-1.1.6
+  - sh -c "cd mongodb-1.1.6 && phpize && ./configure && sudo make install"
+  - echo "extension=mongodb.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+  - composer self-update
+  - composer install
+script: phpunit
+
