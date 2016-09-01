@@ -28,6 +28,18 @@ Class Db implements iDb
     }
 
     /**
+     * Returns a MongoDB Client.
+     *
+     * @author Shivam Mathur <shivam_jpr@hotmail.com>
+     *
+     * @return Client
+     */
+    public function client()
+    {
+        return $this->_client();
+    }
+
+    /**
      * Connect to MongoDB database and return the database object.
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
@@ -43,7 +55,7 @@ Class Db implements iDb
             throw new \Exception("No database name provided");
         }
 
-        $client = $this->_getClient();
+        $client = $this->_client();
         $database = $client->selectDatabase($databaseName);
         $collection = $database->selectCollection($collectionName);
 
@@ -51,14 +63,14 @@ Class Db implements iDb
     }
 
     /**
-     * Initialise a MongoDB Client.
+     * Returns a MongoDB Client.
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
      * @return Client
      * @throws \Exception
      */
-    private function _getClient()
+    private function _client()
     {
         /** @var \MongoDB\Client $client */
         $client = new Client();
