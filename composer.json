@@ -21,5 +21,11 @@
     },
     "require-dev": {
         "phpunit/phpunit": "5.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "CountryCity\\API\\": "api/v1/",
+            "CountryCity\\Templates\\": "templates/"
+        }
     }
 }
