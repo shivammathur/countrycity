@@ -1,3 +1,4 @@
 ﻿vendor/*
 data/db/journal/*
 logs/*
+.idea/*
