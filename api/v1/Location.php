@@ -108,6 +108,10 @@ class Location
      */
     private function _cities($countryName)
     {
+        if($countryName == '_id'){
+            throw new \Exception('Could not found the country - ' . $countryName);
+        }
+
         $locationData = $this->db->findOne(
             [],
             [
