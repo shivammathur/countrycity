@@ -7,7 +7,7 @@ class Location
 {
 
     /**
-     * @var \MongoCollection $db
+     * @var \MongoDB\Collection $db
      */
     protected $db;
 
@@ -18,9 +18,8 @@ class Location
      */
     public function __construct($databaseName, $collectionName)
     {
-        /** @var \MongoCollection $this ->db */
-        $db = new Db();
-        $this->db = $db->connect($databaseName, $collectionName);
+        /** @var \MongoDB\Collection $this->db */
+        $this->db = (new Db())->connect($databaseName, $collectionName);
     }
 
     /**

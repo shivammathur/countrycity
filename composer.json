@@ -25,7 +25,8 @@
     "autoload": {
         "psr-4": {
             "CountryCity\\API\\": "api/v1/",
-            "CountryCity\\Templates\\": "templates/"
+            "CountryCity\\Templates\\": "templates/",
+	    "CountryCity\\Tests\\API\\": "tests/api/v1"
         }
     }
 }
