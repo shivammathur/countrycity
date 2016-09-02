@@ -12,5 +12,7 @@ before_script:
   - composer install
   - mongod --dbpath=data/db &
   - sleep 3
+  - mongorestore data/db/dump/countrycity/geo.bson
+  - sleep 3
 script: phpunit --configuration phpunit.xml
 
