@@ -11,7 +11,7 @@ use MongoDB\Client;
  * Class Db
  * @package CountryCity\API
  */
-Class Db implements idb
+Class Db implements Idb
 {
     /**
      * Connect to MongoDB database and return the database object.

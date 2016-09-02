@@ -18,7 +18,7 @@ class Location
      */
     public function __construct($databaseName, $collectionName)
     {
-        /** @var \MongoDB\Collection $this->db */
+        /** @var \MongoDB\Collection $this ->db */
         $this->database = (new Db())->connect($databaseName, $collectionName);
     }
 
@@ -85,14 +85,14 @@ class Location
             ]
         );
 
-        if ($locationData) {
-            // Getting the names of countries from $locationData
-            $countries = array_keys($locationData);
-
-            sort($countries);
-        } else {
+        if (!$locationData) {
             throw new \Exception('No data in database');
         }
+
+        // Getting the names of countries from $locationData
+        $countries = array_keys($locationData);
+
+        sort($countries);
 
         return $countries;
     }
@@ -108,7 +108,7 @@ class Location
      */
     private function cities($countryName)
     {
-        if($countryName == '_id'){
+        if ($countryName == '_id') {
             throw new \Exception('Could not found the country - ' . $countryName);
         }
 
@@ -127,15 +127,14 @@ class Location
             ]
         );
 
-        if ($locationData) {
-
-            // Getting names of cities from $locationData
-            $cities = $locationData[$countryName];
-
-            sort($cities);
-        } else {
+        if (!$locationData) {
             throw new \Exception('Could not found the country - ' . $countryName);
         }
+
+        // Getting names of cities from $locationData
+        $cities = $locationData[$countryName];
+
+        sort($cities);
 
         return $cities;
     }
