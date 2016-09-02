@@ -3,7 +3,7 @@
 namespace CountryCity\API;
 
 
-interface idb
+interface Idb
 {
     public function connect($databaseName, $collectionName);
 }
