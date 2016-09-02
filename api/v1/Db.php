@@ -11,7 +11,7 @@ use MongoDB\Client;
  * Class Db
  * @package CountryCity\API
  */
-Class Db implements iDb
+Class Db implements idb
 {
     /**
      * Connect to MongoDB database and return the database object.
@@ -24,7 +24,7 @@ Class Db implements iDb
      */
     public function connect($databaseName, $collectionName)
     {
-        return $this->_connect($databaseName, $collectionName);
+        return $this->mongoConnect($databaseName, $collectionName);
     }
 
     /**
@@ -36,7 +36,7 @@ Class Db implements iDb
      */
     public function client()
     {
-        return $this->_client();
+        return $this->mongoClient();
     }
 
     /**
@@ -49,13 +49,13 @@ Class Db implements iDb
      * @return \MongoDB\Collection
      * @throws \Exception
      */
-    private function _connect($databaseName, $collectionName)
+    private function mongoConnect($databaseName, $collectionName)
     {
         if ($databaseName == '') {
             throw new \Exception("No database name provided");
         }
 
-        $client = $this->_client();
+        $client = $this->mongoClient();
         $database = $client->selectDatabase($databaseName);
         $collection = $database->selectCollection($collectionName);
 
@@ -70,7 +70,7 @@ Class Db implements iDb
      * @return Client
      * @throws \Exception
      */
-    private function _client()
+    private function mongoClient()
     {
         /** @var \MongoDB\Client $client */
         $client = new Client();
