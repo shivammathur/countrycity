@@ -3,9 +3,14 @@
 namespace CountryCity\API;
 
 
+/**
+ * This class handles location data.
+ *
+ * Class Location
+ * @package CountryCity\API
+ */
 class Location
 {
-
     /**
      * @var \MongoDB\Collection $db
      */
@@ -27,12 +32,14 @@ class Location
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
+     * @param bool $test
+     *
      * @return string
      */
-    public function getAllCountries()
+    public function getAllCountries($test = false)
     {
         try {
-            $allCountries = $this->countries();
+            $allCountries = $this->countries($test);
         } catch (\Exception $exception) {
             return json_encode(["error" => "true", "message" => $exception->getMessage()]);
         }
@@ -46,14 +53,15 @@ class Location
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
      * @param  $countryName
+     * @param bool $test
      * @return string
      */
-    public function getAllCities($countryName)
+    public function getAllCities($countryName, $test = false)
     {
         $countryName = trim(stripslashes(ucwords($countryName)));
 
         try {
-            $allCities = $this->cities($countryName);
+            $allCities = $this->cities($countryName, $test);
         } catch (\Exception $exception) {
             return json_encode(["error" => "true", "message" => $exception->getMessage()]);
         }
@@ -66,24 +74,28 @@ class Location
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
+     * @param bool $test
      * @return array
      * @throws \Exception
      */
-    private function countries()
+    private function countries($test = false)
     {
-        $locationData = $this->database->findOne(
-            [],
-            [
-                'projection' => [
-                    '_id' => false
-                ],
+        $locationData = [];
+        if (!$test) {
+            $locationData = $this->database->findOne(
+                [],
+                [
+                    'projection' => [
+                        '_id' => false
+                    ],
 
-                'typeMap' => [
-                    'root' => 'array',
-                    'document' => 'array'
+                    'typeMap' => [
+                        'root' => 'array',
+                        'document' => 'array'
+                    ]
                 ]
-            ]
-        );
+            );
+        }
 
         if (!$locationData) {
             throw new \Exception('No data in database');
@@ -103,29 +115,33 @@ class Location
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
      * @param $countryName
+     * @param bool $test
      * @return array
      * @throws \Exception
      */
-    private function cities($countryName)
+    private function cities($countryName, $test = false)
     {
         if ($countryName == '_id') {
             throw new \Exception('Could not found the country - ' . $countryName);
         }
 
-        $locationData = $this->database->findOne(
-            [],
-            [
-                'projection' => [
-                    '_id' => false,
-                    $countryName => true
-                ],
+        $locationData = [];
+        if (!$test) {
+            $locationData = $this->database->findOne(
+                [],
+                [
+                    'projection' => [
+                        '_id' => false,
+                        $countryName => true
+                    ],
 
-                'typeMap' => [
-                    'root' => 'array',
-                    'document' => 'array'
+                    'typeMap' => [
+                        'root' => 'array',
+                        'document' => 'array'
+                    ]
                 ]
-            ]
-        );
+            );
+        }
 
         if (!$locationData) {
             throw new \Exception('Could not found the country - ' . $countryName);
