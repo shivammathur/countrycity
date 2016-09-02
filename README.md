@@ -20,6 +20,12 @@ composer create-project shivammathur/countrycity countrycity "master-dev" --pref
 ```
 mongod --dbpath {countrycityapipath}/data/db
 ```
+
+- Restore the data into the MongoDB Database by using the below command in a new terminal.
+```
+mongorestore {countrycityapipath}/data/db/dump/countrycity/geo.bson
+```
+
 - You are all set.
 
 ### API Endpoints
