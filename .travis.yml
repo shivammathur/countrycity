@@ -10,9 +10,12 @@ before_script:
   - travis-scripts/mongo-ext.sh
   - composer self-update
   - composer install
+  - mkdir -p build/logs
   - mongod --dbpath=data/db &
   - sleep 3
   - mongorestore data/db/dump/countrycity/geo.bson
   - sleep 3
-script: phpunit --configuration phpunit.xml
+script: phpunit --configuration phpunit.xml.dist --coverage-clover build/logs/clover.xml
+after_success:
+  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then php vendor/bin/coveralls -v; fi;'
 

@@ -32,11 +32,12 @@ Class Db implements Idb
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
+     * @param bool $test
      * @return Client
      */
-    public function client()
+    public function client($test = false)
     {
-        return $this->mongoClient();
+        return $this->mongoClient($test);
     }
 
     /**
@@ -51,8 +52,8 @@ Class Db implements Idb
      */
     private function mongoConnect($databaseName, $collectionName)
     {
-        if ($databaseName == '') {
-            throw new \Exception("No database name provided");
+        if ($databaseName == '' || $collectionName == '') {
+            throw new \Exception("Data insufficient to connect");
         }
 
         $client = $this->mongoClient();
@@ -67,13 +68,17 @@ Class Db implements Idb
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
+     * @param bool $test
      * @return Client
      * @throws \Exception
      */
-    private function mongoClient()
+    private function mongoClient($test = false)
     {
-        /** @var \MongoDB\Client $client */
-        $client = new Client();
+        $client = null;
+        if (!$test) {
+            /** @var \MongoDB\Client $client */
+            $client = new Client();
+        }
 
         if (!$client instanceof Client) {
             throw new \Exception("MongoDB process is not running", 1);
