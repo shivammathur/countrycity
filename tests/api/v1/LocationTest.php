@@ -14,6 +14,10 @@ class LocationTest extends \PHPUnit_Framework_TestCase
      * Test country API.
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
+     *
+     * @covers \CountryCity\API\Location::getAllCountries()
+     * @covers \CountryCity\API\Location::countries()
+     * @covers \CountryCity\API\Location::__construct
      */
     public function testGetAllCountries()
     {
@@ -31,6 +35,9 @@ class LocationTest extends \PHPUnit_Framework_TestCase
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
+     * @covers       \CountryCity\API\Location::getAllCities()
+     * @covers       \CountryCity\API\Location::cities()
+     * @covers       \CountryCity\API\Location::__construct
      * @param $countryName
      * @dataProvider Countries
      */
@@ -42,6 +49,35 @@ class LocationTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull(json_decode($cities));
     }
 
+    /**
+     * Test APIs for exceptions.
+     *
+     * @author Shivam Mathur <shivam_jpr@hotmail.com>
+     *
+     * @covers \CountryCity\API\Location::getAllCities()
+     * @covers \CountryCity\API\Location::cities()
+     * @covers \CountryCity\API\Location::getAllCountries()
+     * @covers \CountryCity\API\Location::countries()
+     * @covers \CountryCity\API\Location::__construct
+     */
+    public function testExceptions()
+    {
+        $Location = new Location(self::$databaseName, self::$collection);
+        $output = json_decode($Location->getAllCities('_id'));
+        $this->assertEquals($output->error, "true");
+
+        $output = json_decode($Location->getAllCities('india', true));
+        $this->assertEquals($output->error, "true");
+
+        $output = json_decode($Location->getAllCountries(true));
+        $this->assertEquals($output->error, "true");
+    }
+
+    /**
+     * @author Shivam Mathur <shivam_jpr@hotmail.com>
+     *
+     * @return array
+     */
     public function Countries()
     {
         $Location = new Location(self::$databaseName, self::$collection);
