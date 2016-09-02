@@ -16,6 +16,7 @@
 			<li>Then install this API using by executing the command > <code>composer create-project shivammathur/countrycity countrycity "master-dev" --prefer-dist</code></li>
 			<li>Download and install MongoDB from <a target="_blank" href="https://www.mongodb.org/downloads#production">here</a></li>
 			<li>Start MongoDB server using the following command > <code>mongod --dbpath "<?php echo dirname(__DIR__); ?>\data\db"</code></li>
+			<li>Restore data in MongoDB Database by using the following command in a new terminal > <code>mongorestore <?php echo dirname(__DIR__); ?>\data\db\dump\countrycity\geo.bson</code></li>			
 			<li>You are all set.</li>
 		</ol>
 
