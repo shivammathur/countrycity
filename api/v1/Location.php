@@ -9,7 +9,7 @@ class Location
     /**
      * @var \MongoDB\Collection $db
      */
-    protected $db;
+    protected $database;
 
     /**
      * Location constructor.
@@ -19,7 +19,7 @@ class Location
     public function __construct($databaseName, $collectionName)
     {
         /** @var \MongoDB\Collection $this->db */
-        $this->db = (new Db())->connect($databaseName, $collectionName);
+        $this->database = (new Db())->connect($databaseName, $collectionName);
     }
 
     /**
@@ -32,7 +32,7 @@ class Location
     public function getAllCountries()
     {
         try {
-            $allCountries = $this->_countries();
+            $allCountries = $this->countries();
         } catch (\Exception $exception) {
             return json_encode(["error" => "true", "message" => $exception->getMessage()]);
         }
@@ -53,7 +53,7 @@ class Location
         $countryName = trim(stripslashes(ucwords($countryName)));
 
         try {
-            $allCities = $this->_cities($countryName);
+            $allCities = $this->cities($countryName);
         } catch (\Exception $exception) {
             return json_encode(["error" => "true", "message" => $exception->getMessage()]);
         }
@@ -69,9 +69,9 @@ class Location
      * @return array
      * @throws \Exception
      */
-    private function _countries()
+    private function countries()
     {
-        $locationData = $this->db->findOne(
+        $locationData = $this->database->findOne(
             [],
             [
                 'projection' => [
@@ -106,13 +106,13 @@ class Location
      * @return array
      * @throws \Exception
      */
-    private function _cities($countryName)
+    private function cities($countryName)
     {
         if($countryName == '_id'){
             throw new \Exception('Could not found the country - ' . $countryName);
         }
 
-        $locationData = $this->db->findOne(
+        $locationData = $this->database->findOne(
             [],
             [
                 'projection' => [
