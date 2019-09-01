@@ -2,11 +2,13 @@
 
 namespace CountryCity\Tests\API;
 
+use Exception;
 use CountryCity\API\Db;
 use MongoDB\Client;
 use MongoDB\Collection;
+use PHPUnit\Framework\TestCase;
 
-class DbTest extends \PHPUnit_Framework_TestCase
+class DbTest extends TestCase
 {
     protected static $databaseName = 'countrycity';
     protected static $collection = 'geo';
@@ -22,7 +24,6 @@ class DbTest extends \PHPUnit_Framework_TestCase
     public function testConnect()
     {
         $conn = (new Db())->connect(self::$databaseName, self::$collection);
-
         $this->assertNotNull($conn);
         $this->assertTrue($conn instanceof Collection);
     }
@@ -30,6 +31,7 @@ class DbTest extends \PHPUnit_Framework_TestCase
     /**
      * Test MongoDB client wrapper.
      *
+     * @throws Exception
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
      * @covers \CountryCity\API\Db::client()
@@ -37,10 +39,13 @@ class DbTest extends \PHPUnit_Framework_TestCase
      */
     public function testClient()
     {
-        $client = (new Db())->client();
-
-        $this->assertNotNull($client);
-        $this->assertTrue($client instanceof Client);
+        try {
+            $client = (new Db())->client();
+            $this->assertNotNull($client);
+            $this->assertTrue($client instanceof Client);
+        } catch (Exception $e) {
+            $this->assertEquals("Data insufficient to connect", $e->getMessage());
+        }
     }
 
     /**
@@ -48,27 +53,37 @@ class DbTest extends \PHPUnit_Framework_TestCase
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
-     * @expectedException \Exception
      * @covers \CountryCity\API\Db::client()
      * @covers \CountryCity\API\Db::mongoClient()
      */
     public function testClientException()
     {
-        /** @var \MongoDB\Client $client */
-        $client = (new Db())->client(true);
+        /** @var Client $client */
+        try {
+            $client = (new Db())->client(true);
+            $this->assertNull($client);
+        } catch (Exception $e) {
+            $this->assertEquals("Data insufficient to connect", $e->getMessage());
+        }
+
     }
 
     /**
      * Test MongoDB connect wrapper for Exceptions.
      *
+     * @throws Exception
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
-     * @expectedException \Exception
      * @covers \CountryCity\API\Db::connect()
      * @covers \CountryCity\API\Db::mongoConnect()
      */
     public function testConnectException()
     {
-        $conn = (new Db())->connect('', '');
+        try {
+            $conn = (new Db())->connect('', '');
+            $this->assertNull($conn);
+        } catch (Exception $e) {
+            $this->assertEquals("MongoDB process is not running", $e->getMessage());
+        }
     }
 }

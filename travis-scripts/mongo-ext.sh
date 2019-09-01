@@ -1,4 +1,5 @@
+rm -rf mongodb*
 wget https://pecl.php.net/get/mongodb-1.5.5.tgz
-tar -xzf mongodb-1.5.5
+tar -xzf mongodb-1.5.5.tgz
 sh -c "cd mongodb-1.5.5 && phpize && ./configure && sudo make install"
-echo "extension=mongodb.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+echo "extension=mongodb.so" >> "$(php --ini | grep 'Loaded Configuration' | sed -e 's|.*:\s*||')"

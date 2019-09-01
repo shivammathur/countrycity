@@ -1,0 +1,338 @@
+[33mcommit f1e9707badfecdb3cff7357a7b952ae8a925840a[m[33m ([m[1;36mHEAD -> [m[1;32mdevelop[m[33m)[m
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Sun Sep 1 17:27:34 2019 +0530
+
+    Fix github actions and travis for newer packages
+
+[33mcommit b8de8269cf0047e1ea57dfbc6688bbe7af24b485[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Sun Sep 1 12:55:59 2019 +0530
+
+    Update code as per latest packages
+
+[33mcommit afb341eff896f9b2d3b1b1b9e46831fc624596e2[m
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Sun Sep 1 05:58:43 2019 +0530
+
+    Add github actions
+
+[33mcommit d6cc60008092c38246a343823bc0aad181ea063c[m
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Sun Sep 1 04:30:29 2019 +0530
+
+    newer php versions to travis
+
+[33mcommit 16b1b7b49688717213079f5b6ca06f9302ae4e93[m
+Merge: bd46162 c6a00f1
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Sun Sep 4 16:34:32 2016 +0530
+
+    Merge pull request #25 from shivammathur/develop
+    
+    Add license badge - master
+
+[33mcommit c6a00f120863b65dbbfbd6e7f5c96bb8fccbc390[m
+Merge: 0776ff4 2e00bc8
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Sun Sep 4 16:31:29 2016 +0530
+
+    Merge pull request #24 from shivammathur/licensebadge
+    
+    Add license badge
+
+[33mcommit 2e00bc88b3b63786128c5abf6377a342abcfa951[m
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Sun Sep 4 16:28:40 2016 +0530
+
+    Add license badge
+
+[33mcommit bd461624346db6f42d38ba3b24787e9e5fcaef72[m
+Merge: b555b5f 0776ff4
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Sat Sep 3 09:48:52 2016 +0530
+
+    Merge pull request #23 from shivammathur/develop
+    
+    Create license.md - master
+
+[33mcommit 0776ff41d33603214be23348e52a88a58b177a2f[m
+Merge: 68ed81d 674642e
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Sat Sep 3 09:44:37 2016 +0530
+
+    Merge pull request #22 from shivammathur/license
+    
+    Create license.md
+
+[33mcommit 674642ecab0c19e010dd6012069f04d0cbc59181[m
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Sat Sep 3 09:34:32 2016 +0530
+
+    Create license.md
+
+[33mcommit b555b5f8662b05c748552a6b9ca8677a017a8182[m
+Merge: fc11062 68ed81d
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Sat Sep 3 08:28:43 2016 +0530
+
+    Merge pull request #21 from shivammathur/develop
+    
+    Add codecov support - master
+
+[33mcommit 68ed81d3cae39e5ff744faaba366651c1489fdef[m
+Merge: 68e13ac a33c877
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Sat Sep 3 08:25:15 2016 +0530
+
+    Merge pull request #20 from shivammathur/codecov
+    
+    Add codecov support
+
+[33mcommit a33c8771604d7d16a589f1065f21a9a685f0aed8[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Sat Sep 3 08:22:31 2016 +0530
+
+    Add codecov support
+
+[33mcommit fc110626e9eb5acf7a78e1968895900c32c05c69[m
+Merge: 3545e51 68e13ac
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 10:54:52 2016 +0530
+
+    Merge pull request #19 from shivammathur/develop
+    
+    Add code coverage
+
+[33mcommit 68e13ac876fc065b6e14bc4d84a626ea08b57ac0[m
+Merge: 621ffa6 51ab03e
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 10:52:05 2016 +0530
+
+    Merge pull request #18 from shivammathur/clover
+    
+    Add code coverage
+
+[33mcommit 51ab03ea1d3f010fe92002f53b4883ea27fd5b84[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 08:54:04 2016 +0530
+
+    Add code coverage
+
+[33mcommit 3545e51a2f44d6f05319159421246838118496cd[m
+Merge: 0ed7081 621ffa6
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 08:30:09 2016 +0530
+
+    Merge pull request #17 from shivammathur/develop
+    
+    Add code climate badge
+
+[33mcommit 621ffa69d9c50a4814629b3572f825cb41f3383f[m
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 08:26:26 2016 +0530
+
+    Add code climate badge
+
+[33mcommit 0ed7081d3afdd072aa6a403ceca9e2e2bf313255[m
+Merge: d4156f1 6527517
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 08:22:05 2016 +0530
+
+    Merge pull request #16 from shivammathur/develop
+    
+    Fix code quality - rev2.0
+
+[33mcommit 652751768b05e818d240af0f3e9faa567ad9c53a[m
+Merge: d4156f1 ee7a8f2
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 08:19:40 2016 +0530
+
+    Merge pull request #15 from shivammathur/qa
+    
+    Fix code quality - rev2.0
+
+[33mcommit ee7a8f21232e83097aecec1a3b19e565cf4a0929[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 08:11:06 2016 +0530
+
+    Fix code quality - rev2.0
+
+[33mcommit d4156f1ff532cfc356635ea2b17843fa0d70a946[m
+Merge: 10d4a1a 2dd6e59
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 07:54:17 2016 +0530
+
+    Merge pull request #13 from shivammathur/qa
+    
+    Fix code quality
+
+[33mcommit 2dd6e59a802361ef90203b27a30e531fa454514b[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 07:47:35 2016 +0530
+
+    Fix code quality
+
+[33mcommit 10d4a1a04d4e09919ce3bf610c904e05c1e5fa89[m
+Merge: d405312 6cd22fe
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 06:37:39 2016 +0530
+
+    Merge pull request #12 from shivammathur/develop
+    
+    Now using mongorestore to get data
+
+[33mcommit 6cd22fe9ab59e389f52d9c19d4a7049efbcfee77[m
+Merge: 97a0ca4 6e4804b
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 06:33:50 2016 +0530
+
+    Merge pull request #11 from shivammathur/db
+    
+    Now using mongorestore to get data
+
+[33mcommit 6e4804b091b845638545f049cc91df57240551cd[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 06:07:27 2016 +0530
+
+    Now using mongorestore to get data
+
+[33mcommit d405312ea427167e0ca7341d9c95b6303b3ec824[m
+Merge: 03ea55e 97a0ca4
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 05:54:26 2016 +0530
+
+    Merge pull request #9 from shivammathur/develop
+    
+    Add test cases for location data
+
+[33mcommit 97a0ca42a60dce25bc674ed1ad0904cfb37a9c88[m
+Merge: 03ea55e e151f72
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 05:50:46 2016 +0530
+
+    Merge pull request #8 from shivammathur/API
+    
+    Add test cases for location data
+
+[33mcommit e151f727deafa662836e3716f6d74cb085b4abba[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 05:21:20 2016 +0530
+
+    Add test cases for location data
+
+[33mcommit 03ea55e5ab5cf1e5a5720bcea258365aad53c46a[m
+Merge: a83adf9 fd5346f
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 00:40:03 2016 +0530
+
+    Merge pull request #7 from shivammathur/API
+    
+    Add tests for MongoDB wrapper
+
+[33mcommit fd5346f04fd4faf0642c76c0cdb1c1db00fe61aa[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Fri Sep 2 00:30:57 2016 +0530
+
+    Add tests for MongoDB wrapper
+
+[33mcommit a83adf979e04dfd4b14a86acf77c4e6c9398fb17[m
+Merge: f7d6b1a bb9544a
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Thu Sep 1 20:40:42 2016 +0530
+
+    Merge pull request #6 from shivammathur/develop
+    
+    Refactored into classes
+
+[33mcommit bb9544a5e2e49c2217337f27a97f6e859a739775[m
+Merge: 077891e acc1baf
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Thu Sep 1 20:36:31 2016 +0530
+
+    Merge pull request #5 from shivammathur/API
+    
+    Refactored into classes
+
+[33mcommit acc1bafac0ca6827a3dcb458bfce91d62c0020c2[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Thu Sep 1 20:32:17 2016 +0530
+
+    Refactored into classes
+
+[33mcommit f7d6b1af39b9482d50035ec1ecb3fd9d48eb374c[m
+Merge: 28c3f72 077891e
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Sat Aug 27 18:12:39 2016 +0530
+
+    Merge pull request #4 from shivammathur/develop
+    
+    bump supported PHP version to 5.6
+
+[33mcommit 077891ee10cf1ab96c0f3bdd272edb917c0150fb[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Sat Aug 27 18:02:26 2016 +0530
+
+    bump supported PHP version to 5.6
+
+[33mcommit 28c3f728b47c41d790cf045ead3260587d4bd0e2[m
+Merge: dab9311 1705ed0
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Tue Aug 23 15:09:22 2016 +0530
+
+    Merge pull request #3 from shivammathur/develop
+    
+    Develop
+
+[33mcommit 1705ed0d4ae634c8f810af0822cdc72a21bd3956[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Tue Aug 23 14:59:49 2016 +0530
+
+    Fix phpunit
+
+[33mcommit 864826a10e26de144dbbb30675905a8be6833360[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Tue Aug 23 14:22:14 2016 +0530
+
+    Update travis config for mongodb
+
+[33mcommit 580c919ce3be8025aa35aad8a2d47a72b124ddcd[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Tue Aug 23 14:16:42 2016 +0530
+
+    Update travis config
+
+[33mcommit dab9311592f469edb35c1fccb12756ca71ef63fa[m
+Merge: 9ed4169 9ba8228
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Tue Aug 23 09:30:13 2016 +0530
+
+    Merge pull request #2 from shivammathur/develop
+    
+    Shifted to non legacy MongoDB PHP driver
+
+[33mcommit 9ba822887d1f2689797040cfebb9ca1b8cd9d095[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Tue Aug 23 09:16:34 2016 +0530
+
+    Shifted to non legacy MongoDB PHP driver
+
+[33mcommit 9ed4169682201120a68d99d1410220cc651e85b5[m
+Merge: e561956 dc08ff8
+Author: Shivam Mathur <shivam_jpr@hotmail.com>
+Date:   Mon Aug 22 22:27:34 2016 +0530
+
+    Merge pull request #1 from shivammathur/develop
+    
+    Add documentation to templates
+
+[33mcommit dc08ff8d5c2be0deb556802e7a3a198d4dca7239[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Mon Aug 22 22:22:54 2016 +0530
+
+    Add documentation to templates
+
+[33mcommit e561956fb8b44bf917a2e6e1a3345c0a280fe20c[m
+Author: shivammathur <shivam_jpr@hotmail.com>
+Date:   Mon Aug 22 20:45:45 2016 +0530
+
+    CountryCity API - Initial Commit

@@ -4,8 +4,9 @@ namespace CountryCity\Tests\API;
 
 
 use CountryCity\API\Location;
+use PHPUnit\Framework\TestCase;
 
-class LocationTest extends \PHPUnit_Framework_TestCase
+class LocationTest extends TestCase
 {
     protected static $databaseName = 'countrycity';
     protected static $collection = 'geo';

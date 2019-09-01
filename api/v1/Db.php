@@ -2,8 +2,9 @@
 
 namespace CountryCity\API;
 
-
+use Exception;
 use MongoDB\Client;
+use MongoDB\Collection;
 
 /**
  * This Class handles MongoDB.
@@ -16,24 +17,32 @@ Class Db implements Idb
     /**
      * Connect to MongoDB database and return the database object.
      *
-     * @author Shivam Mathur <shivam_jpr@hotmail.com>
-     *
      * @param $databaseName
      * @param $collectionName
-     * @return \MongoDB\Collection
+     * @return Collection
+     * @author Shivam Mathur <shivam_jpr@hotmail.com>
+     *
      */
     public function connect($databaseName, $collectionName)
     {
-        return $this->mongoConnect($databaseName, $collectionName);
+        $resource = null;
+        try {
+            $resource = $this->mongoConnect($databaseName, $collectionName);
+        } catch (Exception $exception) {
+            echo $exception->getMessage();
+        }
+
+        return $resource;
     }
 
     /**
      * Returns a MongoDB Client.
      *
-     * @author Shivam Mathur <shivam_jpr@hotmail.com>
-     *
      * @param bool $test
      * @return Client
+     * @throws Exception
+     * @author Shivam Mathur <shivam_jpr@hotmail.com>
+     *
      */
     public function client($test = false)
     {
@@ -47,13 +56,13 @@ Class Db implements Idb
      *
      * @param $databaseName
      * @param $collectionName
-     * @return \MongoDB\Collection
-     * @throws \Exception
+     * @return Collection
+     * @throws Exception
      */
     private function mongoConnect($databaseName, $collectionName)
     {
         if ($databaseName == '' || $collectionName == '') {
-            throw new \Exception("Data insufficient to connect");
+            throw new Exception("Data insufficient to connect");
         }
 
         $client = $this->mongoClient();
@@ -70,18 +79,18 @@ Class Db implements Idb
      *
      * @param bool $test
      * @return Client
-     * @throws \Exception
+     * @throws Exception
      */
     private function mongoClient($test = false)
     {
         $client = null;
         if (!$test) {
-            /** @var \MongoDB\Client $client */
+            /** @var Client $client */
             $client = new Client();
-        }
 
-        if (!$client instanceof Client) {
-            throw new \Exception("MongoDB process is not running", 1);
+            if (!$client instanceof Client) {
+                throw new Exception("MongoDB process is not running", 1);
+            }
         }
 
         return $client;

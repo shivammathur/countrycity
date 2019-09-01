@@ -3,6 +3,9 @@
 namespace CountryCity\API;
 
 
+use MongoDB\Collection;
+use Exception;
+
 /**
  * This class handles location data.
  *
@@ -12,7 +15,7 @@ namespace CountryCity\API;
 class Location
 {
     /**
-     * @var \MongoDB\Collection $db
+     * @var Collection $db
      */
     protected $database;
 
@@ -23,7 +26,7 @@ class Location
      */
     public function __construct($databaseName, $collectionName)
     {
-        /** @var \MongoDB\Collection $this ->db */
+        /** @var Collection $this ->db */
         $this->database = (new Db())->connect($databaseName, $collectionName);
     }
 
@@ -40,7 +43,7 @@ class Location
     {
         try {
             $allCountries = $this->countries($test);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             return json_encode(["error" => "true", "message" => $exception->getMessage()]);
         }
 
@@ -62,7 +65,7 @@ class Location
 
         try {
             $allCities = $this->cities($countryName, $test);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             return json_encode(["error" => "true", "message" => $exception->getMessage()]);
         }
 
@@ -76,7 +79,7 @@ class Location
      *
      * @param bool $test
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     private function countries($test = false)
     {
@@ -98,7 +101,7 @@ class Location
         }
 
         if (!$locationData) {
-            throw new \Exception('No data in database');
+            throw new Exception('No data in database');
         }
 
         // Getting the names of countries from $locationData
@@ -117,12 +120,12 @@ class Location
      * @param $countryName
      * @param bool $test
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     private function cities($countryName, $test = false)
     {
         if ($countryName == '_id') {
-            throw new \Exception('Could not found the country - ' . $countryName);
+            throw new Exception('Could not found the country - ' . $countryName);
         }
 
         $locationData = [];
@@ -144,7 +147,7 @@ class Location
         }
 
         if (!$locationData) {
-            throw new \Exception('Could not found the country - ' . $countryName);
+            throw new Exception('Could not found the country - ' . $countryName);
         }
 
         // Getting names of cities from $locationData

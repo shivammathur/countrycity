@@ -3,3 +3,4 @@ logs/*
 data/db/*
 !data/db/dump
 .idea/*
+build/*

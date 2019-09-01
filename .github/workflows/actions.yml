@@ -5,7 +5,7 @@ jobs:
     strategy:
       max-parallel: 3
       matrix:
-        php-version: [5.6, 7.2, 7.3]
+        php-version: [7.2, 7.3]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
