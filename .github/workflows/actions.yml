@@ -1,0 +1,22 @@
+name: Testing countrycity
+on: [push]
+jobs:
+  build:
+    strategy:
+      max-parallel: 3
+      matrix:
+        php-version: [5.6, 7.2, 7.3]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: find files
+        run: ls -la
+      - name: make scripts excutable
+        run: chmod a+x .github/workflows/*.sh
+      - name: Set up php, composer and mongodb
+        run: .github/workflows/install.sh ${{ matrix.php-version }}
+      - name: Install dependencies
+        run: .github/workflows/deps.sh
+      - name: Test with phpunit
+        run: .github/workflows/test.sh
