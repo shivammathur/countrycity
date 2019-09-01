@@ -5,6 +5,6 @@ namespace CountryCity\Templates;
 use CountryCity\API\Location;
 
 /** @var Location $Location */
-$Location = new Location('countrycity','geo');
+$Location = new Location('data/geo.json');
 
 echo $Location->getAllCountries();
