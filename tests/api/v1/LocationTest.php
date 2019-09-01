@@ -2,27 +2,26 @@
 
 namespace CountryCity\Tests\API;
 
-
 use CountryCity\API\Location;
+use PHPUnit\Framework\TestCase;
 
-class LocationTest extends \PHPUnit_Framework_TestCase
+class LocationTest extends TestCase
 {
-    protected static $databaseName = 'countrycity';
-    protected static $collection = 'geo';
+    protected static $filename = 'data/geo.json';
 
     /**
      * Test country API.
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
-     * @covers \CountryCity\API\Location::getAllCountries()
-     * @covers \CountryCity\API\Location::countries()
+     * @covers \CountryCity\API\Location::getAllCountries
+     * @covers \CountryCity\API\Location::countries
      * @covers \CountryCity\API\Location::__construct
      */
     public function testGetAllCountries()
     {
-        $Location = new Location(self::$databaseName, self::$collection);
-        $allCountries = $Location->getAllCountries();
+        $location = new Location(self::$filename);
+        $allCountries = $location->getAllCountries();
         $countries = json_decode($allCountries);
 
         $this->assertNotEquals($allCountries, '');
@@ -35,18 +34,17 @@ class LocationTest extends \PHPUnit_Framework_TestCase
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
-     * @covers       \CountryCity\API\Location::getAllCities()
-     * @covers       \CountryCity\API\Location::cities()
-     * @covers       \CountryCity\API\Location::__construct
+     * @covers \CountryCity\API\Location::getAllCities
+     * @covers \CountryCity\API\Location::cities
+     * @covers \CountryCity\API\Location::__construct
      * @param $countryName
      * @dataProvider Countries
      */
     public function testGetAllCities($countryName)
     {
-        $Location = new Location(self::$databaseName, self::$collection);
-        $cities = $Location->getAllCities($countryName);
-
-        $this->assertNotNull(json_decode($cities));
+        $location = new Location(self::$filename);
+        $cities = $location->getAllCities($countryName);
+        $this->assertFalse(strpos($cities, '"error":"true"'));
     }
 
     /**
@@ -54,22 +52,26 @@ class LocationTest extends \PHPUnit_Framework_TestCase
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
-     * @covers \CountryCity\API\Location::getAllCities()
-     * @covers \CountryCity\API\Location::cities()
-     * @covers \CountryCity\API\Location::getAllCountries()
-     * @covers \CountryCity\API\Location::countries()
+     * @covers \CountryCity\API\Location::getAllCities
+     * @covers \CountryCity\API\Location::cities
+     * @covers \CountryCity\API\Location::getAllCountries
+     * @covers \CountryCity\API\Location::countries
      * @covers \CountryCity\API\Location::__construct
      */
-    public function testExceptions()
+    public function testErrors()
     {
-        $Location = new Location(self::$databaseName, self::$collection);
-        $output = json_decode($Location->getAllCities('_id'));
+
+        // test wrong country name
+        $location = new Location(self::$filename);
+        $output = json_decode($location->getAllCities('covfefe'));
         $this->assertEquals($output->error, "true");
 
-        $output = json_decode($Location->getAllCities('india', true));
+        $location = new Location('');
+
+        $output = json_decode($location->getAllCities('india'));
         $this->assertEquals($output->error, "true");
 
-        $output = json_decode($Location->getAllCountries(true));
+        $output = json_decode($location->getAllCountries());
         $this->assertEquals($output->error, "true");
     }
 
@@ -80,8 +82,8 @@ class LocationTest extends \PHPUnit_Framework_TestCase
      */
     public function Countries()
     {
-        $Location = new Location(self::$databaseName, self::$collection);
-        $allCountries = $Location->getAllCountries();
+        $location = new Location(self::$filename);
+        $allCountries = $location->getAllCountries();
         $countries = json_decode($allCountries);
 
         $data = [];

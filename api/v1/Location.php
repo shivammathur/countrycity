@@ -3,6 +3,9 @@
 namespace CountryCity\API;
 
 
+use JsonMachine\JsonMachine;
+use Exception;
+
 /**
  * This class handles location data.
  *
@@ -12,19 +15,13 @@ namespace CountryCity\API;
 class Location
 {
     /**
-     * @var \MongoDB\Collection $db
-     */
-    protected $database;
-
-    /**
      * Location constructor.
-     * @param $databaseName
-     * @param $collectionName
+     * @param $filename
      */
-    public function __construct($databaseName, $collectionName)
+    public function __construct($filename)
     {
-        /** @var \MongoDB\Collection $this ->db */
-        $this->database = (new Db())->connect($databaseName, $collectionName);
+        /** @var array $this ->data */
+        $this->file = $filename;
     }
 
     /**
@@ -32,15 +29,13 @@ class Location
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
-     * @param bool $test
-     *
      * @return string
      */
-    public function getAllCountries($test = false)
+    public function getAllCountries()
     {
         try {
-            $allCountries = $this->countries($test);
-        } catch (\Exception $exception) {
+            $allCountries = $this->countries();
+        } catch (Exception $exception) {
             return json_encode(["error" => "true", "message" => $exception->getMessage()]);
         }
 
@@ -53,16 +48,15 @@ class Location
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
      * @param  $countryName
-     * @param bool $test
      * @return string
      */
-    public function getAllCities($countryName, $test = false)
+    public function getAllCities($countryName)
     {
         $countryName = trim(stripslashes(ucwords($countryName)));
 
         try {
-            $allCities = $this->cities($countryName, $test);
-        } catch (\Exception $exception) {
+            $allCities = $this->cities($countryName);
+        } catch (Exception $exception) {
             return json_encode(["error" => "true", "message" => $exception->getMessage()]);
         }
 
@@ -74,38 +68,19 @@ class Location
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
-     * @param bool $test
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
-    private function countries($test = false)
+    private function countries()
     {
-        $locationData = [];
-        if (!$test) {
-            $locationData = $this->database->findOne(
-                [],
-                [
-                    'projection' => [
-                        '_id' => false
-                    ],
-
-                    'typeMap' => [
-                        'root' => 'array',
-                        'document' => 'array'
-                    ]
-                ]
-            );
+        if (!$this->file) {
+            throw new Exception('Invalid data filename');
         }
 
-        if (!$locationData) {
-            throw new \Exception('No data in database');
-        }
-
-        // Getting the names of countries from $locationData
-        $countries = array_keys($locationData);
+        $data = JsonMachine::fromFile($this->file);
+        $countries = array_keys(iterator_to_array($data, true));
 
         sort($countries);
-
         return $countries;
     }
 
@@ -115,40 +90,30 @@ class Location
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
      * @param $countryName
-     * @param bool $test
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
-    private function cities($countryName, $test = false)
+    private function cities($countryName)
     {
-        if ($countryName == '_id') {
-            throw new \Exception('Could not found the country - ' . $countryName);
+        if (!$this->file) {
+            throw new Exception('Invalid data filename');
         }
 
-        $locationData = [];
-        if (!$test) {
-            $locationData = $this->database->findOne(
-                [],
-                [
-                    'projection' => [
-                        '_id' => false,
-                        $countryName => true
-                    ],
+        $data = JsonMachine::fromFile($this->file);
 
-                    'typeMap' => [
-                        'root' => 'array',
-                        'document' => 'array'
-                    ]
-                ]
-            );
+        $cities = [];
+        $found = false;
+        foreach ($data as $key => $value) {
+            if($countryName == ucwords($key)) {
+                $found = true;
+                $cities = $value;
+                break;
+            }
         }
 
-        if (!$locationData) {
-            throw new \Exception('Could not found the country - ' . $countryName);
+        if(!$found) {
+            throw new Exception('Invalid country name: '. $countryName);
         }
-
-        // Getting names of cities from $locationData
-        $cities = $locationData[$countryName];
 
         sort($cities);
 

@@ -1,4 +1,5 @@
 <?php
 // Application middleware
 
-// e.g: $app->add(new \Slim\Csrf\Guard);
+use Slim\HttpCache\Cache;
+$app->add(new Cache('public', 86400));

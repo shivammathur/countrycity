@@ -2,9 +2,11 @@
 
 require __DIR__.'\..\vendor\autoload.php';
 
+use Slim\App;
+
 // Instantiate the app
 $settings = require __DIR__ . '/../src/settings.php';
-$app = new \Slim\App($settings);
+$app = new App($settings);
 
 // Set up dependencies
 require __DIR__ . '/../src/dependencies.php';
