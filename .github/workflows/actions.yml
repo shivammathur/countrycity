@@ -3,19 +3,18 @@ on: [push]
 jobs:
   build:
     strategy:
-      max-parallel: 2
+      max-parallel: 6
       matrix:
-        php-version: [7.2, 7.3]
-    runs-on: ubuntu-latest
+        operating-system: [ubuntu-latest, windows-latest, macOS-latest]
+        php-versions: [7.2, 7.3]
+    runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      - name: find files
-        run: ls -la
-      - name: make install script excutable
-        run: chmod a+x .github/workflows/install.sh
       - name: Set up php and composer
-        run: .github/workflows/install.sh ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@master
+        with:
+          php-version: ${{ matrix.php-versions }}
       - name: Install dependencies
         run: composer self-update && composer install
       - name: Test with phpunit
@@ -23,8 +22,4 @@ jobs:
       - name: coveralls
         run: sh -c php vendor/bin/php-coveralls -v
       - name: codecov-umbrella
-        uses: codecov/codecov-action@v1.0.2
-        with:
-          token: ${{secrets.CODECOV_TOKEN}}
-          file: build/logs/clover.xml
-          name: github-actions-codecov
+        run: curl -s https://codecov.io/bash | bash -s -- -t ${{secrets.CODECOV_TOKEN}} -f build/logs/clover.xml -n github-actions-codecov
