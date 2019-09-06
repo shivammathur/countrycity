@@ -3,7 +3,7 @@ on: [push]
 jobs:
   build:
     strategy:
-      max-parallel: 6
+      max-parallel: 2
       matrix:
         operating-system: [ubuntu-latest, windows-latest, macOS-latest]
         php-versions: [7.2, 7.3]
