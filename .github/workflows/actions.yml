@@ -3,7 +3,7 @@ on: [push]
 jobs:
   build:
     strategy:
-      max-parallel: 2
+      max-parallel: 6
       matrix:
         operating-system: [ubuntu-latest, windows-latest, macOS-latest]
         php-versions: [7.2, 7.3]
@@ -12,12 +12,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
       - name: Set up php and composer
-        uses: shivammathur/setup-php@master
+        uses: shivammathur/setup-php@ext
         with:
           php-version: ${{ matrix.php-versions }}
+          extension-csv: 'mbstring'
       - name: Install dependencies
         run: composer self-update && composer install
+      - name: Test with phpunit in windows
+        if: matrix.operating-system == 'windows-latest'
+        run: .\vendor\bin\phpunit --dump-xdebug-filter xdebug-filter.php && .\vendor\bin\phpunit --prepend xdebug-filter.php --coverage-clover build/logs/clover.xml --coverage-text
       - name: Test with phpunit
+        if: matrix.operating-system != 'windows-latest'
         run: vendor/bin/phpunit --dump-xdebug-filter xdebug-filter.php && vendor/bin/phpunit --prepend xdebug-filter.php --coverage-clover build/logs/clover.xml --coverage-text
       - name: coveralls
         run: sh -c php vendor/bin/php-coveralls -v
