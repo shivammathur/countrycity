@@ -26,7 +26,7 @@
         "symfony/http-kernel":  "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "*",
+        "phpunit/phpunit": "dev-master",
         "php-coveralls/php-coveralls": "*",
         "squizlabs/php_codesniffer": "*"
     },
