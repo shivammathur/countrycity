@@ -14,16 +14,18 @@ jobs:
       - name: Set up php and composer
         uses: shivammathur/setup-php@develop
         with:
-          php-version: ${{ matrix.php-versions }}
-          extension-csv: 'mbstring, xdebug'
+          php-version: ${{ matrix.php-versions }}        
+          extension-csv: 'mbstring'
+          ini-values-csv: 'pcov.directory=api'
+          coverage: 'pcov'
       - name: Install dependencies
         run: composer self-update && composer install
       - name: Test with phpunit in windows
         if: matrix.operating-system == 'windows-latest'
-        run: .\vendor\bin\phpunit --dump-xdebug-filter xdebug-filter.php && .\vendor\bin\phpunit --prepend xdebug-filter.php --coverage-clover build/logs/clover.xml --coverage-text
+        run: .\vendor\bin\phpunit --coverage-clover build/logs/clover.xml --coverage-text
       - name: Test with phpunit
         if: matrix.operating-system != 'windows-latest'
-        run: vendor/bin/phpunit --dump-xdebug-filter xdebug-filter.php && vendor/bin/phpunit --prepend xdebug-filter.php --coverage-clover build/logs/clover.xml --coverage-text
+        run: vendor/bin/phpunit --coverage-clover build/logs/clover.xml --coverage-text
       - name: coveralls
         run: sh -c php vendor/bin/php-coveralls -v
       - name: codecov-umbrella

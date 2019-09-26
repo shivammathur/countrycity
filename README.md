@@ -35,14 +35,24 @@ composer create-project shivammathur/countrycity countrycity "master-dev" --pref
 All API responses are in `json` format.
 
 - Get the list of all countries
-```
+```bash
 /countries
+
+# Without URL Rewriting
+/index.php/countries
 ```
 
 - Get the list all cities in a country
-```
+```bash
 /cities/{countryName}
+
+# Without URL Rewriting
+/index.php/cities/{countryName}
 ```
+
+### Host this
+Here are the [Configuration Instructions](http://www.slimframework.com/docs/v3/start/web-servers.html) for if you want to host this.
+	
 
 ### :wrench: Error Format
 
