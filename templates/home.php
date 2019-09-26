@@ -23,6 +23,11 @@
 		<code>
 			/countries
 		</code>
+		
+		Without URL Rewriting
+		<code>
+			/index.php/countries
+		</code>		
 	</p>
 
 	<h2>Get All Cities in a Country</h2>
@@ -30,6 +35,15 @@
 		<code>
 			/cities/{countryName}
 		</code>
+		
+		Without URL Rewriting
+		<code>
+			/index.php/cities/{countryName}
+		</code>			
+	</p>
+
+	<p>
+		Here are the <a target="_blank" href="http://www.slimframework.com/docs/v3/start/web-servers.html">server configuration instructions</a> if you want to host this on a server.
 	</p>
 
 	<h2>Error Format</h2>

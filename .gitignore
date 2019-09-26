@@ -1,5 +1,4 @@
 ﻿vendor/*
-logs/*
 build/*
 xdebug-filter.php
 .phpunit.result.cache

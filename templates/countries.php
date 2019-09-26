@@ -7,4 +7,5 @@ use CountryCity\API\Location;
 /** @var Location $Location */
 $Location = new Location('data/geo.json');
 
+/** @var $data */
 echo $Location->getAllCountries();
