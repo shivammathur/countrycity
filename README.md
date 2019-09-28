@@ -50,7 +50,7 @@ All API responses are in `json` format.
 /index.php/cities/{countryName}
 ```
 
-### Host this
+### :cloud: Host this
 Here are the [Configuration Instructions](http://www.slimframework.com/docs/v3/start/web-servers.html) for if you want to host this.
 	
 
