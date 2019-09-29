@@ -71,7 +71,7 @@ $ vendor/bin/phpunit --configuration phpunit.xml.dist
 
 ## :scroll: License
 
-The scripts and documentation in this project are released under the [MIT License](LICENSE). This project has multiple dependencies which can be found in the [`composer.json`](composer.json) file. Their licenses can be found in their respective repositories.
+The scripts and documentation in this project are released under the [MIT License](LICENSE). This project has multiple [dependencies](https://github.com/shivammathur/countrycity/network/dependencies) and their licenses can be found in their respective repositories.
 
 ## :+1: Contributions
 

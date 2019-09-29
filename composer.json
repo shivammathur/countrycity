@@ -1,7 +1,15 @@
 {
     "name": "shivammathur/countrycity",
     "description": "API to get all countries and all cities in a country.",
-    "keywords": ["cities", "countries", "php", "rest", "dropdown", "psr7", "geodata"],
+    "keywords": [
+        "cities",
+        "countries",
+        "php",
+        "rest",
+        "dropdown",
+        "psr7",
+        "geodata"
+    ],
     "homepage": "http://github.com/shivammathur",
     "license": "MIT",
     "authors": [
@@ -12,39 +20,35 @@
             "role": "author"
         }
     ],
-    "support": {
-        "issues": "https://github.com/shivammathur/countrycity/issues",
-        "email": "contact@shivammathur.com"
-    },    
     "require": {
         "php": "^7.2",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "slim/slim": "^3.12",
-        "slim/psr7": "*",
-        "slim/php-view": "^2.2",
-        "slim/http-cache": "^0.4.0",
         "halaxa/json-machine": "*",
-        "symfony/event-dispatcher":  "*",
+        "slim/http-cache": "^0.4.0",
+        "slim/php-view": "^2.2",
+        "slim/psr7": "*",
+        "slim/slim": "^3.12",
+        "symfony/event-dispatcher": "*",
+        "symfony/http-kernel": "*",
         "symfony/lock": "*",
-        "symfony/process":  "*",
-        "zendframework/zend-httphandlerrunner": "*",
-        "symfony/http-kernel":  "*"
+        "symfony/process": "*",
+        "zendframework/zend-httphandlerrunner": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "dev-master",
         "php-coveralls/php-coveralls": "*",
+        "phpunit/phpunit": "dev-master",
         "squizlabs/php_codesniffer": "*"
     },
+    "suggest": {
+        "ext-pcov": "*"
+    },
     "config": {
+        "optimize-autoloader": true,
         "platform": {
             "php": "7.2.0"
         },
-        "optimize-autoloader": true,
         "sort-packages": true
-    },    
-    "suggest": {
-        "ext-pcov": "*"
     },
     "autoload": {
         "psr-4": {
@@ -56,5 +60,9 @@
         "psr-4": {
             "CountryCity\\Tests\\API\\": "tests/api/v1"
         }
-    }    
+    },
+    "support": {
+        "email": "contact@shivammathur.com",
+        "issues": "https://github.com/shivammathur/countrycity/issues"
+    }
 }
