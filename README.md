@@ -9,6 +9,10 @@
 
 Country City API is a REST API to get a list of all the countries in the world. It can also be used to get a list of all the cities in a country.
 
+<p align="center">
+	<img src="https://shivammathur.com/countrycity/countrycity.gif">
+</p>
+
 ### :zap: Installing the API
 
 - Download this API using [composer](https://getcomposer.org/download/) by executing the command below.
