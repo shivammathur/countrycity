@@ -1,23 +1,29 @@
 {
     "name": "shivammathur/countrycity",
     "description": "API to get all countries and all cities in a country.",
-    "keywords": ["cities","countries","php","rest","router", "psr7","geolocation"],
+    "keywords": ["cities", "countries", "php", "rest", "dropdown", "psr7", "geodata"],
     "homepage": "http://github.com/shivammathur",
     "license": "MIT",
     "authors": [
         {
             "name": "Shivam Mathur",
-            "email": "shivam_jpr@hotmail.com",
-            "homepage": "https://shivammathur.com"
+            "email": "contact@shivammathur.com",
+            "homepage": "https://shivammathur.com",
+            "role": "author"
         }
     ],
+    "support": {
+        "issues": "https://github.com/shivammathur/countrycity/issues",
+        "email": "contact@shivammathur.com"
+    },    
     "require": {
-        "php": ">=7.2.0",
+        "php": "^7.2",
+        "ext-json": "*",
+        "ext-mbstring": "*",
         "slim/slim": "^3.12",
         "slim/psr7": "*",
         "slim/php-view": "^2.2",
         "slim/http-cache": "^0.4.0",
-        "ext-json": "*",
         "halaxa/json-machine": "*",
         "symfony/event-dispatcher":  "*",
         "symfony/lock": "*",
@@ -30,11 +36,25 @@
         "php-coveralls/php-coveralls": "*",
         "squizlabs/php_codesniffer": "*"
     },
+    "config": {
+        "platform": {
+            "php": "7.2.0"
+        },
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },    
+    "suggest": {
+        "ext-pcov": "*"
+    },
     "autoload": {
         "psr-4": {
             "CountryCity\\API\\": "api/v1/",
-            "CountryCity\\Templates\\": "templates/",
-	    "CountryCity\\Tests\\API\\": "tests/api/v1"
+            "CountryCity\\Templates\\": "templates/"
         }
-    }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CountryCity\\Tests\\API\\": "tests/api/v1"
+        }
+    }    
 }

@@ -11,15 +11,11 @@ before_script:
   - pecl install pcov
   - phpenv config-rm xdebug.ini
   - ini_file=$(php --ini | grep "Loaded Configuration" | sed -e "s|.*:s*||" | sed "s/ //g")  
-  - echo $ini_file
   - echo "pcov.enabled=1" >> $ini_file
   - echo "pcov.directory=api" >> $ini_file
-  - php -v && php -m
-  - composer self-update
   - composer install
 script: vendor/bin/phpunit --coverage-clover build/logs/clover.xml --coverage-text
 after_success:
-  - cat build/logs/clover.xml
-  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then php vendor/bin/php-coveralls -v; fi;'
+  - php vendor/bin/php-coveralls -v
   - bash <(curl -s https://codecov.io/bash)
 
