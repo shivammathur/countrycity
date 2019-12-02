@@ -1,5 +1,5 @@
-# Country City API
-[![Build Status](https://travis-ci.org/shivammathur/countrycity.svg?branch=master)](https://travis-ci.org/shivammathur/countrycity)
+# Country City API  
+[![Build Status](https://github.com/shivammathur/countrycity/workflows/Tests/badge.svg)](https://github.com/shivammathur/countrycity/actions)
 [![Code Climate](https://codeclimate.com/github/shivammathur/countrycity/badges/gpa.svg)](https://codeclimate.com/github/shivammathur/countrycity)
 [![codecov](https://codecov.io/gh/shivammathur/countrycity/branch/master/graph/badge.svg)](https://codecov.io/gh/shivammathur/countrycity)
 [![License](https://poser.pugx.org/shivammathur/countrycity/license)](license.md)
