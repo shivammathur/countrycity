@@ -35,6 +35,7 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
+            "abandoned": "psr/container",
             "time": "2017-02-14T19:40:03+00:00"
         },
         {
@@ -1510,16 +1511,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.3.4",
+            "version": "v4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "e89969c00d762349f078db1128506f7f3dcc0d4a"
+                "reference": "51c0135ef3f44c5803b33dc60e96bf4f77752726"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/e89969c00d762349f078db1128506f7f3dcc0d4a",
-                "reference": "e89969c00d762349f078db1128506f7f3dcc0d4a",
+                "url": "https://api.github.com/repos/symfony/process/zipball/51c0135ef3f44c5803b33dc60e96bf4f77752726",
+                "reference": "51c0135ef3f44c5803b33dc60e96bf4f77752726",
                 "shasum": ""
             },
             "require": {
@@ -1528,7 +1529,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "4.4-dev"
                 }
             },
             "autoload": {
@@ -1555,7 +1556,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2019-08-26T08:26:39+00:00"
+            "time": "2019-11-28T13:33:56+00:00"
         },
         {
             "name": "zendframework/zend-httphandlerrunner",
