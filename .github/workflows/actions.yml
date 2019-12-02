@@ -3,10 +3,9 @@ on: [push]
 jobs:
   build:
     strategy:
-      max-parallel: 6
       matrix:
         operating-system: [ubuntu-latest, windows-latest, macOS-latest]
-        php-versions: [7.2, 7.3]
+        php-versions: [7.2, 7.3, 7.4]
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Checkout
@@ -19,12 +18,8 @@ jobs:
           ini-values-csv: 'pcov.directory=api'
           coverage: 'pcov'
       - name: Install dependencies
-        run: composer self-update && composer install
-      - name: Test with phpunit in windows
-        if: matrix.operating-system == 'windows-latest'
-        run: .\vendor\bin\phpunit --coverage-clover build/logs/clover.xml --coverage-text
+        run: composer install --no-progress --no-suggest --prefer-dist
       - name: Test with phpunit
-        if: matrix.operating-system != 'windows-latest'
         run: vendor/bin/phpunit --coverage-clover build/logs/clover.xml --coverage-text
       - name: coveralls
         run: sh -c php vendor/bin/php-coveralls -v
