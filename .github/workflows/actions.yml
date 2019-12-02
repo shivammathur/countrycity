@@ -1,5 +1,5 @@
-name: Testing countrycity
-on: [push]
+name: Tests
+on: [push, pull_request]
 jobs:
   build:
     strategy:
