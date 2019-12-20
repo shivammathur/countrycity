@@ -58,16 +58,16 @@
         },
         {
             "name": "halaxa/json-machine",
-            "version": "0.3.2",
+            "version": "0.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/halaxa/json-machine.git",
-                "reference": "8e3555b270540130bd3626ab76bf1f1e394485f1"
+                "reference": "6333030d3f5f3673738db30425264ca5d901aac8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/halaxa/json-machine/zipball/8e3555b270540130bd3626ab76bf1f1e394485f1",
-                "reference": "8e3555b270540130bd3626ab76bf1f1e394485f1",
+                "url": "https://api.github.com/repos/halaxa/json-machine/zipball/6333030d3f5f3673738db30425264ca5d901aac8",
+                "reference": "6333030d3f5f3673738db30425264ca5d901aac8",
                 "shasum": ""
             },
             "require": {
@@ -76,16 +76,17 @@
             },
             "require-dev": {
                 "guzzlehttp/guzzle": "^6",
-                "phpunit/phpunit": "*"
-            },
-            "suggest": {
-                "guzzlehttp/guzzle": "To run scripts in src/examples."
+                "phpunit/phpunit": "^5.7",
+                "symfony/http-client": "^5"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "JsonMachine\\": "src/"
-                }
+                },
+                "files": [
+                    "src/functions.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -97,8 +98,8 @@
                     "email": "filip@halaxa.cz"
                 }
             ],
-            "description": "Fast, efficient and easy-to-use JSON stream parser developed for unpredictably long JSON streams or documents.",
-            "time": "2019-03-20T19:33:36+00:00"
+            "description": "Efficient, easy-to-use and fast JSON pull parser",
+            "time": "2019-12-20T18:30:23+00:00"
         },
         {
             "name": "nikic/fast-route",
