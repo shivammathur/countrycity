@@ -1120,16 +1120,16 @@
         },
         {
             "name": "symfony/lock",
-            "version": "v4.4.2",
+            "version": "v4.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/lock.git",
-                "reference": "738d8a5d8d093a1e30ff98909c8ad9ed91944601"
+                "reference": "de412046486269dd3984db757e492ee5f81e0bf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/lock/zipball/738d8a5d8d093a1e30ff98909c8ad9ed91944601",
-                "reference": "738d8a5d8d093a1e30ff98909c8ad9ed91944601",
+                "url": "https://api.github.com/repos/symfony/lock/zipball/de412046486269dd3984db757e492ee5f81e0bf2",
+                "reference": "de412046486269dd3984db757e492ee5f81e0bf2",
                 "shasum": ""
             },
             "require": {
@@ -1182,7 +1182,7 @@
                 "redlock",
                 "semaphore"
             ],
-            "time": "2019-12-13T08:10:41+00:00"
+            "time": "2020-02-04T09:32:40+00:00"
         },
         {
             "name": "symfony/mime",
