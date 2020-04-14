@@ -28,7 +28,7 @@
         "slim/http-cache": "^0.4.0",
         "slim/php-view": "^2.2",
         "slim/psr7": "*",
-        "slim/slim": "^3.12",
+        "slim/slim": "^4.5",
         "symfony/event-dispatcher": "*",
         "symfony/http-kernel": "*",
         "symfony/lock": "*",
