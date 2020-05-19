@@ -71,6 +71,7 @@ class Location
      */
     public function mb_search(string $haystack, string $needle)
     {
+        setlocale(LC_ALL, 'en_US.UTF8');
         $haystack = preg_replace('/[\'^`~\"]/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $haystack));
         $needle = preg_replace('/[\'^`~\"]/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $needle));
         return mb_stripos($haystack, $needle);
