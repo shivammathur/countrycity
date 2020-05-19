@@ -8,4 +8,4 @@ use CountryCity\API\Location;
 $Location = new Location();
 
 /** @var $data */
-echo $Location->getCountries();
+echo $Location->getCities($data['countryName'], $data['search']);

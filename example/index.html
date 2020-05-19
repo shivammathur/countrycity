@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>CountryCity by shivammathur</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
 	<header class="text-center">
@@ -15,11 +15,13 @@
 			<div class="row">
 				<div class="col-lg-2"></div>
 				<div class="col-lg-4">
-					<select class="pt-4 pb-4 countries js-example-basic-single js-states form-control" id="countries" name="countries" onchange="return getcities();">
+					<label for="countries"><strong>Countries</strong></label>
+					<select class="pt-4 pb-4 countries js-example-basic-single js-states form-control" id="countries" name="countries">
 						<option value="">Select One</option>
 					</select>
 				</div>
 				<div class="col-lg-4">
+					<label for="cities"><strong>Cities</strong></label>
 					<select class="pt-4 pb-4 cities js-example-basic-single js-states form-control" id="cities" name="cities">
 						<option value="">Select One</option>
 					</select>		
@@ -28,50 +30,77 @@
 			</div>
 		</div>
 	</section>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.0/umd/popper.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.min.js"></script>
 	<script type="text/javascript">	
-		var base= "https://shivammathur.com/countrycity"	
-		$.ajax({
-		    url: base+"/countries",
-		    dataType: 'json',
-		}).done(function(data){
-		    result = $.map(data, function (item) {
-		        return {
-		            id: item,
-		            text: item
-		        };
-		    });		    
-		    $("#countries").select2({
-		        placeholder: "Choose a country",
-		        data: result,
-		    });
+		const base= "https://shivammathur.com/countrycity";
+		const country_el = $('#countries');
+		/**
+		 * Function to map the API data in select format
+		 *
+		 * @param data
+		 * @returns array
+		 */
+		const mapper = (data) => {
+			return data.map((item) => {
+				return {
+					id: item,
+					text: item
+				};
+			});
+		};
+
+		// Initialise countries select dropdown.
+		country_el.select2({
+			placeholder: "Choose a country",
+			ajax: {
+				dataType: 'json',
+				url: (params) => {
+					if(params.term) {
+						return base + "/countries/" + params.term;
+					} else {
+						return base + "/countries";
+					}
+				},
+				processResults: (data) => {
+					return {
+						"results": mapper(data)
+					};
+				}
+			}
 		});
+
+		// When a country is selected update cities select dropdown.
+		country_el.change(() => {
+			const country = country_el.val();
+			$('#cities option').not(':first').remove();
+			$('#cities').select2({
+				placeholder: "Choose a city in " + country,
+				ajax: {
+					dataType: 'json',
+					url: (params) => {
+						if (params.term) {
+							return base + "/cities/" + country + "/" + params.term;
+						} else {
+							return base + "/cities/" + country;
+						}
+					},
+					processResults: (data) => {
+						return {
+							"results": mapper(data)
+						};
+					}
+				}
+			});
+		});
+
+		// Initialise cities select dropdown.
 	    $("#cities").select2({
 	        placeholder: "Choose a country first",
 	        data: null,
-	    });	
-		function getcities() {
-			var country = $('#countries').val();
-			$.ajax({
-			    url: base+"/cities/" + country,
-			    dataType: 'json',
-			}).done(function(data){
-			    result = $.map(data, function (item) {
-			        return {
-			            id: item,
-			            text: item
-			        };
-			    });
-			    $('#cities option').not(':first').remove();
-			    $("#cities").select2({
-			        placeholder: "Choose a city in " + country,
-			        data: result,
-			    });			    
-			});				
-		}
+	    });
 	</script>
 </body>
 </html>

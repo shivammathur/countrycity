@@ -21,7 +21,7 @@
         }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "^7.4",
         "ext-json": "*",
         "ext-mbstring": "*",
         "halaxa/json-machine": "*",
@@ -32,12 +32,16 @@
         "symfony/event-dispatcher": "*",
         "symfony/http-kernel": "*",
         "symfony/lock": "*",
+        "symfony/polyfill-iconv": "^1.17",
+        "symfony/polyfill-mbstring": "^1.17",
         "symfony/process": "*",
         "zendframework/zend-httphandlerrunner": "*"
     },
     "require-dev": {
         "php-coveralls/php-coveralls": "*",
+        "phpunit/php-timer": "dev-master",
         "phpunit/phpunit": "dev-master",
+        "sebastian/type": "dev-master",
         "squizlabs/php_codesniffer": "*"
     },
     "suggest": {
@@ -45,9 +49,6 @@
     },
     "config": {
         "optimize-autoloader": true,
-        "platform": {
-            "php": "7.2.0"
-        },
         "sort-packages": true
     },
     "autoload": {

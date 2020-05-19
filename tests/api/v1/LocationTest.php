@@ -7,26 +7,27 @@ use PHPUnit\Framework\TestCase;
 
 class LocationTest extends TestCase
 {
-    protected static $filename = 'data/geo.json';
-
     /**
      * Test country API.
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
-     * @covers \CountryCity\API\Location::getAllCountries
+     * @covers \CountryCity\API\Location::getCountries
      * @covers \CountryCity\API\Location::countries
-     * @covers \CountryCity\API\Location::__construct
      */
-    public function testGetAllCountries()
+    public function testGetCountries()
     {
-        $location = new Location(self::$filename);
-        $allCountries = $location->getAllCountries();
-        $countries = json_decode($allCountries);
+        $location = new Location();
+        $countries = $location->getCountries();
+        $countries = json_decode($countries);
 
-        $this->assertNotEquals($allCountries, '');
+        $this->assertNotEquals($countries, '');
         $this->assertNotNull($countries);
         $this->assertCount(247, $countries);
+
+        $countries = $location->getCountries('uni');
+        $countries = json_decode($countries);
+        $this->assertContains('United States', $countries);
     }
 
     /**
@@ -34,17 +35,18 @@ class LocationTest extends TestCase
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
-     * @covers \CountryCity\API\Location::getAllCities
+     * @covers \CountryCity\API\Location::getCities
      * @covers \CountryCity\API\Location::cities
-     * @covers \CountryCity\API\Location::__construct
-     * @param $countryName
-     * @dataProvider Countries
      */
-    public function testGetAllCities($countryName)
+    public function testGetCities()
     {
-        $location = new Location(self::$filename);
-        $cities = $location->getAllCities($countryName);
+        $location = new Location();
+        $cities = $location->getCities('United States');
         $this->assertFalse(strpos($cities, '"error":"true"'));
+
+        $cities = $location->getCities('United States', 'hou');
+        $cities = json_decode($cities);
+        $this->assertContains('Houston', $cities);
     }
 
     /**
@@ -52,44 +54,37 @@ class LocationTest extends TestCase
      *
      * @author Shivam Mathur <shivam_jpr@hotmail.com>
      *
-     * @covers \CountryCity\API\Location::getAllCities
+     * @covers \CountryCity\API\Location::getCities
      * @covers \CountryCity\API\Location::cities
-     * @covers \CountryCity\API\Location::getAllCountries
+     * @covers \CountryCity\API\Location::getCountries
      * @covers \CountryCity\API\Location::countries
-     * @covers \CountryCity\API\Location::__construct
      */
     public function testErrors()
     {
+        // test wrong country name
+        $location = new Location();
+        $output = json_decode($location->getCities('does_not_exist'));
+        $this->assertEquals($output->error, "true");
 
         // test wrong country name
-        $location = new Location(self::$filename);
-        $output = json_decode($location->getAllCities('covfefe'));
+        $location = new Location();
+        $location::$file = '';
+        $output = json_decode($location->getCities('India'));
         $this->assertEquals($output->error, "true");
-
-        $location = new Location('');
-
-        $output = json_decode($location->getAllCities('india'));
-        $this->assertEquals($output->error, "true");
-
-        $output = json_decode($location->getAllCountries());
+        $output = json_decode($location->getCountries());
         $this->assertEquals($output->error, "true");
     }
 
     /**
-     * @author Shivam Mathur <shivam_jpr@hotmail.com>
+     * Test mb_search function
      *
-     * @return array
+     * @author Shivam Mathur <shivam_jpr@hotmail.com>
+     * @covers \CountryCity\API\Location::mb_search
      */
-    public function Countries()
+    public function testMbSearch()
     {
-        $location = new Location(self::$filename);
-        $allCountries = $location->getAllCountries();
-        $countries = json_decode($allCountries);
-
-        $data = [];
-        foreach ($countries as $countryName) {
-            $data[] = [$countryName];
-        }
-        return $data;
+        $location = new Location();
+        $this->assertTrue($location->mb_search('apple', 'APPL') !== false);
+        $this->assertTrue($location->mb_search('homé', 'home') !== false);
     }
 }

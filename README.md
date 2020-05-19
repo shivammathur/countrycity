@@ -3,11 +3,8 @@
 [![Code Climate](https://codeclimate.com/github/shivammathur/countrycity/badges/gpa.svg)](https://codeclimate.com/github/shivammathur/countrycity)
 [![codecov](https://codecov.io/gh/shivammathur/countrycity/branch/master/graph/badge.svg)](https://codecov.io/gh/shivammathur/countrycity)
 [![License](https://poser.pugx.org/shivammathur/countrycity/license)](license.md)
-[![Support me on Patreon](https://shivammathur.com/badges/patreon.svg)](https://www.patreon.com/shivammathur)
-[![Support me on Paypal](https://shivammathur.com/badges/paypal.svg)](https://www.paypal.me/shivammathur)
-[![Get Help on codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/shivammathur?utm_source=github&utm_medium=button&utm_term=shivammathur&utm_campaign=github)
 
-This is geodata API built to get the data with countries in the world and cities in a particular country. This API is a plugin for creating drop-downs in a form which populate via an AJAX request. You can find a [select2](https://select2.org/) implementation [here](https://shivammathur.github.io/countrycity/). Code for this implementation is in [`example`](example) directory.
+Geodata API to get the list of countries and cities in the world. This can be plugged in country and city picker drop-downs in forms. You can find a [select2](https://select2.org/) implementation [here](https://shivammathur.github.io/countrycity/). Code for this implementation is in [`example`](example) directory.
 
 <p align="center">
 	<img src="https://shivammathur.com/countrycity/countrycity.gif">	
@@ -15,6 +12,10 @@ This is geodata API built to get the data with countries in the world and cities
 
 ### :zap: Installing the CountryCity API
 
+- Make sure you have PHP 7.4 or newer.
+```bash
+$ php -v
+```
 - Download this API using [composer](https://getcomposer.org/download/) using the command below.
 ```bash
 $ composer global require shivammathur/countrycity "master-dev"
@@ -37,12 +38,28 @@ All API responses are in `json` format.
 /index.php/countries
 ```
 
-- Get all cities in a country
+- Get all countries containing a search keyword
 ```bash
-/cities/{countryName}
+/countries/{search_keyword}
 
 # Without URL Rewriting
-/index.php/cities/{countryName}
+/index.php/countries/{search_keyword}
+```
+
+- Get all cities in a country 
+```bash
+/cities/{country}
+
+# Without URL Rewriting
+/index.php/cities/{country}
+```
+
+- Get all cities in a country containing a search keyword
+```bash
+/cities/{country}/{search_keyword}
+
+# Without URL Rewriting
+/index.php/cities/{country}/{search_keyword}
 ```
 
 ### :sparkles: Rest API Features
@@ -53,6 +70,7 @@ All API responses are in `json` format.
   - Last-Modified
 - Fast and lightweight API
 - PSR 7 Complaint
+- CORS Middleware
 
 ### :cloud: Hosting configuration
 Here are the [Configuration Instructions](http://www.slimframework.com/docs/v3/start/web-servers.html) if you want to host this on your server.	
@@ -79,5 +97,5 @@ Contributions are welcome! See [Contributor's Guide](.github/CONTRIBUTING.md).
 
 ## :sparkling_heart: Support this project
 
-- Please star the project and share it among your developer friends.
-- Consider supporting on <a href="https://www.patreon.com/shivammathur"><img alt="Support me on Patreon" src="https://shivammathur.com/badges/patreon.svg"></a> and <a href="https://www.paypal.me/shivammathur"><img alt="Support me on Paypal" src="https://shivammathur.com/badges/paypal.svg"></a>.
+- Please star the project and share it with the community.
+- Support the project by sponsoring my work on <a href="https://www.patreon.com/shivammathur"><img alt="Support me on Patreon" src="https://shivammathur.com/badges/patreon.svg"></a> or sponsor using <a href="https://www.paypal.me/shivammathur"><img alt="Support me on Paypal" src="https://shivammathur.com/badges/paypal.svg"></a>.
