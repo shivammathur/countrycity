@@ -39,6 +39,7 @@
     },
     "require-dev": {
         "php-coveralls/php-coveralls": "*",
+        "phpunit/php-code-coverage": "dev-master",
         "phpunit/php-timer": "dev-master",
         "phpunit/phpunit": "dev-master",
         "sebastian/type": "dev-master",
