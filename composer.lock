@@ -1176,33 +1176,35 @@
         },
         {
             "name": "symfony/lock",
-            "version": "v5.0.8",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/lock.git",
-                "reference": "a95c9074c71c650d22c2f66d0e3b0ce70968c786"
+                "reference": "a0d692367795cf3d3ff0d10d736f5887bc4444a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/lock/zipball/a95c9074c71c650d22c2f66d0e3b0ce70968c786",
-                "reference": "a95c9074c71c650d22c2f66d0e3b0ce70968c786",
+                "url": "https://api.github.com/repos/symfony/lock/zipball/a0d692367795cf3d3ff0d10d736f5887bc4444a0",
+                "reference": "a0d692367795cf3d3ff0d10d736f5887bc4444a0",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2.5",
-                "psr/log": "~1.0"
+                "php": ">=7.2.5",
+                "psr/log": "~1.0",
+                "symfony/polyfill-php80": "^1.15"
             },
             "conflict": {
                 "doctrine/dbal": "<2.5"
             },
             "require-dev": {
-                "doctrine/dbal": "~2.5",
+                "doctrine/dbal": "^2.5|^3.0",
+                "mongodb/mongodb": "~1.1",
                 "predis/predis": "~1.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0-dev"
+                    "dev-master": "5.1-dev"
                 }
             },
             "autoload": {
@@ -1237,7 +1239,7 @@
                 "redlock",
                 "semaphore"
             ],
-            "time": "2020-04-12T11:07:29+00:00"
+            "time": "2020-05-28T09:10:22+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
