@@ -25,6 +25,7 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "halaxa/json-machine": "*",
+        "laminas/laminas-httphandlerrunner": "*",
         "slim/http-cache": "^0.4.0",
         "slim/php-view": "^2.2",
         "slim/psr7": "*",
@@ -34,14 +35,14 @@
         "symfony/lock": "*",
         "symfony/polyfill-iconv": "^1.17",
         "symfony/polyfill-mbstring": "^1.17",
-        "symfony/process": "*",
-        "zendframework/zend-httphandlerrunner": "*"
+        "symfony/process": "*"
     },
     "require-dev": {
         "php-coveralls/php-coveralls": "*",
         "phpunit/php-code-coverage": "dev-master",
         "phpunit/php-timer": "dev-master",
         "phpunit/phpunit": "dev-master",
+        "sebastian/global-state": "dev-master",
         "sebastian/type": "dev-master",
         "squizlabs/php_codesniffer": "*"
     },
