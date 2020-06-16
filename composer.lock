@@ -940,7 +940,7 @@
         },
         {
             "name": "symfony/error-handler",
-            "version": "v5.1.1",
+            "version": "v5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/error-handler.git",
@@ -1127,16 +1127,16 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v5.1.1",
+            "version": "v5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "e0d853bddc2b2cfb0d67b0b4496c03fffe1d37fa"
+                "reference": "f93055171b847915225bd5b0a5792888419d8d75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/e0d853bddc2b2cfb0d67b0b4496c03fffe1d37fa",
-                "reference": "e0d853bddc2b2cfb0d67b0b4496c03fffe1d37fa",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/f93055171b847915225bd5b0a5792888419d8d75",
+                "reference": "f93055171b847915225bd5b0a5792888419d8d75",
                 "shasum": ""
             },
             "require": {
@@ -1184,20 +1184,20 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2020-05-24T12:18:07+00:00"
+            "time": "2020-06-15T06:52:54+00:00"
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v5.1.1",
+            "version": "v5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "1151e5d51a680b22e758d05c6647dd9857503ec8"
+                "reference": "a18c27ace1ef344ffcb129a5b089bad7643b387a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/1151e5d51a680b22e758d05c6647dd9857503ec8",
-                "reference": "1151e5d51a680b22e758d05c6647dd9857503ec8",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/a18c27ace1ef344ffcb129a5b089bad7643b387a",
+                "reference": "a18c27ace1ef344ffcb129a5b089bad7643b387a",
                 "shasum": ""
             },
             "require": {
@@ -1283,7 +1283,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2020-06-12T11:25:56+00:00"
+            "time": "2020-06-15T13:51:38+00:00"
         },
         {
             "name": "symfony/lock",
@@ -1700,7 +1700,7 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v5.1.1",
+            "version": "v5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
@@ -2684,12 +2684,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "b0d089de001ba60ffa3be36b23e1b8150d072238"
+                "reference": "6d36bbdaff786cd2a89949c7869daac8857dd99b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/b0d089de001ba60ffa3be36b23e1b8150d072238",
-                "reference": "b0d089de001ba60ffa3be36b23e1b8150d072238",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/6d36bbdaff786cd2a89949c7869daac8857dd99b",
+                "reference": "6d36bbdaff786cd2a89949c7869daac8857dd99b",
                 "shasum": ""
             },
             "require": {
@@ -2725,7 +2725,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2020-06-07T12:05:53+00:00"
+            "time": "2020-06-16T06:43:19+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -2782,12 +2782,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "dfc9ae0659daf4e27b0baf4e9266c4a1f0542b50"
+                "reference": "1d221c1dd1fbc67128f5b5031cebc8b62108de02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/dfc9ae0659daf4e27b0baf4e9266c4a1f0542b50",
-                "reference": "dfc9ae0659daf4e27b0baf4e9266c4a1f0542b50",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1d221c1dd1fbc67128f5b5031cebc8b62108de02",
+                "reference": "1d221c1dd1fbc67128f5b5031cebc8b62108de02",
                 "shasum": ""
             },
             "require": {
@@ -2862,7 +2862,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2020-06-15T18:58:48+00:00"
+            "time": "2020-06-16T08:59:47+00:00"
         },
         {
             "name": "sebastian/code-unit",
@@ -3201,12 +3201,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "ca306b6cb018f46b9a995f5dbf156b1473262bcd"
+                "reference": "df0c6a871ce8ea540e0b1b8f27c7d4e6322e7316"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/ca306b6cb018f46b9a995f5dbf156b1473262bcd",
-                "reference": "ca306b6cb018f46b9a995f5dbf156b1473262bcd",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/df0c6a871ce8ea540e0b1b8f27c7d4e6322e7316",
+                "reference": "df0c6a871ce8ea540e0b1b8f27c7d4e6322e7316",
                 "shasum": ""
             },
             "require": {
@@ -3247,7 +3247,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2020-06-07T06:03:57+00:00"
+            "time": "2020-06-16T07:26:02+00:00"
         },
         {
             "name": "sebastian/object-enumerator",
@@ -3445,12 +3445,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/type.git",
-                "reference": "302504e1bf28a4291a2633ab8bcd0d0d9335255a"
+                "reference": "f860707a55efd1a71421b55533459dd9d1403a06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/type/zipball/302504e1bf28a4291a2633ab8bcd0d0d9335255a",
-                "reference": "302504e1bf28a4291a2633ab8bcd0d0d9335255a",
+                "url": "https://api.github.com/repos/sebastianbergmann/type/zipball/f860707a55efd1a71421b55533459dd9d1403a06",
+                "reference": "f860707a55efd1a71421b55533459dd9d1403a06",
                 "shasum": ""
             },
             "require": {
@@ -3483,7 +3483,7 @@
             ],
             "description": "Collection of value objects that represent the types of the PHP type system",
             "homepage": "https://github.com/sebastianbergmann/type",
-            "time": "2020-06-05T06:50:32+00:00"
+            "time": "2020-06-16T07:33:25+00:00"
         },
         {
             "name": "sebastian/version",
