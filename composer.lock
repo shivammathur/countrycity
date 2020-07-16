@@ -1536,16 +1536,16 @@
         },
         {
             "name": "symfony/polyfill-iconv",
-            "version": "v1.17.1",
+            "version": "v1.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-iconv.git",
-                "reference": "ba6c9c18db36235b859cc29b8372d1c01298c035"
+                "reference": "6c2f78eb8f5ab8eaea98f6d414a5915f2e0fce36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-iconv/zipball/ba6c9c18db36235b859cc29b8372d1c01298c035",
-                "reference": "ba6c9c18db36235b859cc29b8372d1c01298c035",
+                "url": "https://api.github.com/repos/symfony/polyfill-iconv/zipball/6c2f78eb8f5ab8eaea98f6d414a5915f2e0fce36",
+                "reference": "6c2f78eb8f5ab8eaea98f6d414a5915f2e0fce36",
                 "shasum": ""
             },
             "require": {
@@ -1557,7 +1557,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.17-dev"
+                    "dev-master": "1.18-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -1609,7 +1609,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-06T08:46:27+00:00"
+            "time": "2020-07-14T12:35:20+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2926,16 +2926,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "fcd851c2bf95b78bc20c862cd14cb5a1190f33b5"
+                "reference": "d84f406544953155f9458afe088ef42f37a54001"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/fcd851c2bf95b78bc20c862cd14cb5a1190f33b5",
-                "reference": "fcd851c2bf95b78bc20c862cd14cb5a1190f33b5",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/d84f406544953155f9458afe088ef42f37a54001",
+                "reference": "d84f406544953155f9458afe088ef42f37a54001",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3"
+                "php": "^7.3 || ^8.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.2"
@@ -2973,7 +2973,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-06-23T06:01:41+00:00"
+            "time": "2020-07-14T11:19:04+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -3483,16 +3483,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "40b34ab4a2f29a8b104fc7fbe60f0ce4af26ccfa"
+                "reference": "3a35e6fbebc52b024f02f80d6f0501495d7c10d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/40b34ab4a2f29a8b104fc7fbe60f0ce4af26ccfa",
-                "reference": "40b34ab4a2f29a8b104fc7fbe60f0ce4af26ccfa",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/3a35e6fbebc52b024f02f80d6f0501495d7c10d8",
+                "reference": "3a35e6fbebc52b024f02f80d6f0501495d7c10d8",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3",
+                "php": "^7.3 || ^8.0",
                 "sebastian/object-reflector": "^2.0",
                 "sebastian/recursion-context": "^4.0"
             },
@@ -3535,7 +3535,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-06-23T06:00:52+00:00"
+            "time": "2020-07-04T05:14:11+00:00"
         },
         {
             "name": "sebastian/object-enumerator",
