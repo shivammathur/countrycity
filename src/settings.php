@@ -1,7 +1,8 @@
 <?php
 return [
     'settings' => [
-        'displayErrorDetails' => true, // set to false in production
+        // set to false in production
+        'displayErrorDetails' => true,
 
         // Renderer settings
         'renderer' => [

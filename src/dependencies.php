@@ -1,5 +1,5 @@
 <?php
-// DIC configuration
+// Dependencies
 
 use Psr\Container\ContainerInterface;
 use Slim\HttpCache\CacheProvider;
@@ -14,6 +14,7 @@ $container['renderer'] = function (ContainerInterface $c) {
     return new Slim\Views\PhpRenderer($settings['template_path']);
 };
 
+// API Cache
 $container['cache'] = function () {
     return new CacheProvider();
 };
