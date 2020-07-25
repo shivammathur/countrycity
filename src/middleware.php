@@ -8,6 +8,8 @@ use Slim\Http\Response;
 $app->add(new Cache('public', 86400));
 $app->add(function(Request $request, Response $response, $next) {
     $route = $request->getAttribute("route");
+
+    // Get required methods
     $methods = [];
     if (!empty($route)) {
         $pattern = $route->getPattern();
