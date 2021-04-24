@@ -4,8 +4,8 @@ jobs:
   build:
     strategy:
       matrix:
-        operating-system: [ubuntu-latest, windows-latest, macOS-latest]
-        php-versions: ['7.4', '8.0']
+        operating-system: [ubuntu-latest]
+        php-versions: ['7.4', '8.0', '8.1']
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Checkout
