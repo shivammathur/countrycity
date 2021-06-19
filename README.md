@@ -20,7 +20,7 @@ $ php -v
 ```bash
 $ composer global require shivammathur/countrycity "master-dev"
 ```
-- Then install the API using by executing the command below.
+- Then install the API by executing the command below.
 ```bash
 $ composer create-project shivammathur/countrycity countrycity "master-dev" --prefer-dist
 ```
