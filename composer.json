@@ -28,7 +28,9 @@
         "halaxa/json-machine": "*",
         "slim/http-cache": "^1.0",
         "slim/php-view": "^3.0",
-        "slim/slim": "^4.0"
+        "slim/slim": "^4.0",
+        "php-di/php-di": "^6.4",
+        "slim/psr7": "^1.1"
     },
     "require-dev": {
         "symfony/process": "^5.4",
