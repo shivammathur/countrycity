@@ -2,6 +2,7 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
+use Slim\Psr7\Response;
 use Slim\App;
 
 // Instantiate the app
@@ -16,10 +17,11 @@ require __DIR__ . '/../src/middleware.php';
 require __DIR__ . '/../src/routes.php';
 
 
-// Run app
 try {
     $app->run();
 } catch (Throwable $e) {
-    echo $e->getMessage();
+    $response = new Response();
+    $response->getBody()->write($e->getMessage());
+    echo $response->getBody();
 }
 
