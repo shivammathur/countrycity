@@ -3,12 +3,11 @@
 namespace CountryCity\API;
 
 
-use JsonMachine\JsonMachine;
-use Exception;
-use phpDocumentor\Reflection\Types\Integer;
-use function iconv;
-use function mb_stripos;
+use JsonMachine\Items as JsonMachine;
 use function preg_replace;
+use function mb_stripos;
+use function iconv;
+use Exception;
 
 /**
  * This class handles location data.
