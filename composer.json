@@ -23,7 +23,6 @@
     "require": {
         "php": ">=7.4",
         "ext-iconv": "*",
-        "ext-json": "*",
         "ext-mbstring": "*",
         "halaxa/json-machine": "*",
         "slim/http-cache": "^1.0",
