@@ -1,5 +1,4 @@
 <?php
-// Application middleware
 
 use Slim\HttpCache\Cache;
 use Slim\Http\Request;
@@ -29,3 +28,14 @@ $app->add(function(Request $request, Response $response, $next) {
     return $response->withHeader('Access-Control-Allow-Origin', '*')
                     ->withHeader("Access-Control-Allow-Methods", implode(",", $methods));
 });
+
+/**
+ * Note: This middleware should be added last. 
+ * It will not handle any exceptions/errors
+ * for middleware added after it.
+ */
+$errorMiddleware = $app->addErrorMiddleware(
+    $displayErrorDetails = true,
+    $logErrors = true,
+    $logErrorDetails = true,
+);
