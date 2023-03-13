@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use DI\ContainerBuilder;
 use Slim\Psr7\Response;
@@ -27,4 +27,3 @@ try {
     $response->getBody()->write($e->getMessage());
     echo $response->getBody();
 }
-

@@ -7,7 +7,7 @@ use Slim\HttpCache\Cache;
 
 $app->add(new Cache('public', 86400));
 
-$app->add(function(Request $request, RequestHandler $handler) use ($app) {
+$app->add(function (Request $request, RequestHandler $handler) use ($app) {
     $all_routes = $app->getRouteCollector()->getRoutes();
 
     // Get required methods
@@ -30,7 +30,7 @@ $app->add(function(Request $request, RequestHandler $handler) use ($app) {
 });
 
 /**
- * Note: This middleware should be added last. 
+ * Note: This middleware should be added last.
  * It will not handle any exceptions/errors
  * for middleware added after it.
  */

@@ -3,9 +3,11 @@
 namespace CountryCity\API;
 
 use JsonMachine\Items as JsonMachine;
+
 use function preg_replace;
 use function mb_stripos;
 use function iconv;
+
 use Exception;
 
 /**
@@ -28,7 +30,7 @@ class Location
      * @param string|NULL $search
      * @return false|string
      */
-    public function getCountries(string $search = NULL)
+    public function getCountries(string $search = null)
     {
         try {
             $allCountries = $this->countries($search);
@@ -47,7 +49,7 @@ class Location
      * @param string|NULL $search
      * @return false|string
      */
-    public function getCities(string $countryName, string $search = NULL)
+    public function getCities(string $countryName, string $search = null)
     {
         $countryName = trim(stripslashes(ucwords($countryName)));
 
@@ -84,7 +86,7 @@ class Location
      * @return array
      * @throws Exception
      */
-    private function countries(string $search = NULL)
+    private function countries(string $search = null)
     {
         if (self::$file == '') {
             throw new Exception('Invalid data filename');
@@ -95,10 +97,10 @@ class Location
             array_keys(iterator_to_array($data, true)),
             fn (string $country) => !$search || $this->mb_search($country, $search) !== false
         );
-        if(empty($search)) {
+        if (empty($search)) {
             sort($countries);
         } else {
-            usort($countries, function (string $a, string $b) use ($search) : int {
+            usort($countries, function (string $a, string $b) use ($search): int {
                 if (strpos($a, $search) == strpos($b, $search)) {
                     return 0;
                 }
@@ -117,7 +119,7 @@ class Location
      * @return array
      * @throws Exception
      */
-    private function cities(string $countryName, string $search = NULL)
+    private function cities(string $countryName, string $search = null)
     {
         if (self::$file == '') {
             throw new Exception('Invalid data filename');
@@ -128,16 +130,16 @@ class Location
         $cities = [];
         $found = false;
         foreach ($data as $key => $value) {
-            if($countryName == ucwords($key)) {
+            if ($countryName == ucwords($key)) {
                 $found = true;
                 $cities = array_filter(
                     $value,
                     fn (string $city) => !$search || $this->mb_search($city, $search) !== false
                 );
-                if(empty($search)) {
+                if (empty($search)) {
                     sort($cities);
                 } else {
-                    usort($cities, function (string $a, string $b) use ($search) : int {
+                    usort($cities, function (string $a, string $b) use ($search): int {
                         if (strpos($a, $search) == strpos($b, $search)) {
                             return 0;
                         }
@@ -148,8 +150,8 @@ class Location
             }
         }
 
-        if(!$found) {
-            throw new Exception('Invalid country name: '. $countryName);
+        if (!$found) {
+            throw new Exception('Invalid country name: ' . $countryName);
         }
 
         return $cities;
