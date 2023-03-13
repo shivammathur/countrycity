@@ -18,11 +18,11 @@ $ php -v
 ```
 - Download this API using [composer](https://getcomposer.org/download/) using the command below.
 ```bash
-$ composer global require shivammathur/countrycity "master-dev"
+composer global require shivammathur/countrycity "dev-main"
 ```
 - Then install the API by executing the command below.
 ```bash
-$ composer create-project shivammathur/countrycity countrycity "master-dev" --prefer-dist
+composer create-project shivammathur/countrycity countrycity "dev-main" --prefer-dist
 ```
 - You are all set, you can use this API.
 

@@ -2,7 +2,6 @@
 
 namespace CountryCity\API;
 
-
 use JsonMachine\Items as JsonMachine;
 use function preg_replace;
 use function mb_stripos;
