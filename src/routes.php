@@ -1,50 +1,32 @@
 <?php
-// Routes
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
+use CountryCity\SetupCache;
 
-$app->get('/countries', function (Request $request, Response $response, $args) {
-    // Set up cache headers
-    $setup = new SetupCache();
-    $setup->addCacheHeaders($this->cache, $request, $response);
+$setup = new SetupCache();
 
-    // Render countries API
-    return $this->renderer->render($response, 'countries.php', $args);
+$app->get('/countries', function (Request $request, Response $response) use ($setup) {
+    $setup->addCacheHeaders($this->get('cache'), $request, $response);
+    return $this->get('renderer')->render($response, 'countries.php');
 });
 
-$app->get('/countries/{search}', function (Request $request, Response $response, $args) {
-    // Set up cache headers
-    $setup = new SetupCache();
-    $setup->addCacheHeaders($this->cache, $request, $response);
-
-    // Render countries API
-    return $this->renderer->render($response, 'countries_search.php', $args);
+$app->get('/countries/{search}', function (Request $request, Response $response, $args) use ($setup) {
+    $setup->addCacheHeaders($this->get('cache'), $request, $response);
+    return $this->get('renderer')->render($response, 'countries_search.php', $args);
 });
 
-$app->get('/cities/{countryName}', function (Request $request, Response $response, $args) {
-    // Set up cache headers
-    $setup = new SetupCache();
-    $setup->addCacheHeaders($this->cache, $request, $response);
-
-    // Render cities API
-    return $this->renderer->render($response, 'cities.php', $args);
+$app->get('/cities/{countryName}', function (Request $request, Response $response, $args) use ($setup) {
+    $setup->addCacheHeaders($this->get('cache'), $request, $response);
+    return $this->get('renderer')->render($response, 'cities.php', $args);
 });
 
-$app->get('/cities/{countryName}/{search}', function (Request $request, Response $response, $args) {
-    // Set up cache headers
-    $setup = new SetupCache();
-    $setup->addCacheHeaders($this->cache, $request, $response);
-
-    // Render cities API
-    return $this->renderer->render($response, 'cities_search.php', $args);
+$app->get('/cities/{countryName}/{search}', function (Request $request, Response $response, $args) use ($setup) {
+    $setup->addCacheHeaders($this->get('cache'), $request, $response);
+    return $this->get('renderer')->render($response, 'cities_search.php', $args);
 });
 
-$app->get('/', function (Request $request, Response $response, $args) {
-    // Set up cache headers
-    $setup = new SetupCache();
-    $setup->addCacheHeaders($this->cache, $request, $response);
-
-    // Render index view
-    return $this->renderer->render($response, 'home.php', $args);
+$app->get('/', function (Request $request, Response $response) use ($setup) {
+    $setup->addCacheHeaders($this->get('cache'), $request, $response);
+    return $this->get('renderer')->render($response, 'home.php');
 });

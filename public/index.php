@@ -1,25 +1,29 @@
 <?php
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
+use DI\ContainerBuilder;
+use Slim\Psr7\Response;
 use Slim\App;
 
-// Instantiate the app
-$settings = require __DIR__ . '/../src/settings.php';
-$app = new App($settings);
+$containerBuilder = new ContainerBuilder();
 
-// Set up dependencies
-require __DIR__ . '/../src/dependencies.php';
-// Register middleware
-require __DIR__ . '/../src/middleware.php';
-// Register routes
-require __DIR__ . '/../src/routes.php';
+$containerBuilder->addDefinitions(dirname(__DIR__) . '/src/settings.php');
 
+$container = $containerBuilder->build();
 
-// Run app
+$app = $container->get(App::class);
+
+require dirname(__DIR__) . '/src/dependencies.php';
+require dirname(__DIR__) . '/src/routes.php';
+require dirname(__DIR__) . '/src/middleware.php';
+
+$app->addRoutingMiddleware();
+
 try {
     $app->run();
 } catch (Throwable $e) {
-    echo $e->getMessage();
+    $response = new Response();
+    $response->getBody()->write($e->getMessage());
+    echo $response->getBody();
 }
-

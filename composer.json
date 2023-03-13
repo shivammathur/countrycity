@@ -23,22 +23,17 @@
     "require": {
         "php": ">=7.4",
         "ext-iconv": "*",
-        "ext-json": "*",
         "ext-mbstring": "*",
         "halaxa/json-machine": "*",
-        "slim/http-cache": "^0.4.0",
+        "slim/http-cache": "^1.0",
         "slim/php-view": "^3.0",
-        "slim/slim": "^3.12",
-        "symfony/event-dispatcher": "*",
-        "symfony/http-kernel": "*",
-        "symfony/process": "*"
+        "slim/slim": "^4.0",
+        "php-di/php-di": "^6.4",
+        "slim/psr7": "^1.1"
     },
     "require-dev": {
-        "nikic/php-parser": "*",
-        "phpunit/php-code-coverage": "dev-master",
-        "phpunit/phpunit": "dev-master",
-        "sebastian/global-state": "dev-master",
-        "sebastian/type": "dev-master",
+        "symfony/process": "^5.4",
+        "phpunit/phpunit": "^9.0",
         "squizlabs/php_codesniffer": "*"
     },
     "suggest": {
@@ -60,6 +55,10 @@
         }
     },
     "minimum-stability": "dev",
+    "scripts": {
+        "start": "php -S localhost:8000 index.php",
+        "test": "./vendor/bin/phpunit"
+    },
     "support": {
         "email": "contact@shivammathur.com",
         "issues": "https://github.com/shivammathur/countrycity/issues"

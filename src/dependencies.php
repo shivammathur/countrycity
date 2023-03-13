@@ -1,25 +1,27 @@
 <?php
-// Dependencies
 
+namespace CountryCity;
+
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Container\ContainerInterface;
 use Slim\HttpCache\CacheProvider;
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Views\PhpRenderer;
 
 $container = $app->getContainer();
 
 // view renderer
-$container['renderer'] = function (ContainerInterface $c) {
-    $settings = $c->get('settings')['renderer'];
-    return new Slim\Views\PhpRenderer($settings['template_path']);
-};
+$container->set('renderer', function (ContainerInterface $c) {
+    $template_path = dirname(__DIR__) . '/templates/';
+    return new PhpRenderer($template_path);
+});
 
 // API Cache
-$container['cache'] = function () {
+$container->set('cache', function () {
     return new CacheProvider();
-};
+});
 
-Class SetupCache
+class SetupCache
 {
     public function addCacheHeaders(CacheProvider $cache, Request $request, Response &$response)
     {

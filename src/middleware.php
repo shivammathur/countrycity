@@ -1,20 +1,22 @@
 <?php
-// Application middleware
 
+use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteContext;
 use Slim\HttpCache\Cache;
-use Slim\Http\Request;
-use Slim\Http\Response;
 
 $app->add(new Cache('public', 86400));
-$app->add(function(Request $request, Response $response, $next) {
-    $route = $request->getAttribute("route");
+
+$app->add(function (Request $request, RequestHandler $handler) use ($app) {
+    $all_routes = $app->getRouteCollector()->getRoutes();
 
     // Get required methods
     $methods = [];
-    if (!empty($route)) {
-        $pattern = $route->getPattern();
-        foreach ($this->router->getRoutes() as $route) {
-            if ($pattern === $route->getPattern()) {
+    if (! empty($routes)) {
+        $routeContext = RouteContext::fromRequest($request);
+        $current_route_pattern = $routeContext->getRoute()->getPattern();
+        foreach ($all_routes as $route) {
+            if ($current_route_pattern === $route->getPattern()) {
                 $methods = array_merge_recursive($methods, $route->getMethods());
             }
         }
@@ -22,10 +24,18 @@ $app->add(function(Request $request, Response $response, $next) {
         $methods[] = $request->getMethod();
     }
 
-    /**
-     * @var Response $response
-     */
-    $response = $next($request, $response);
-    return $response->withHeader('Access-Control-Allow-Origin', '*')
-                    ->withHeader("Access-Control-Allow-Methods", implode(",", $methods));
+    return $handler->handle($request)
+                ->withHeader('Access-Control-Allow-Origin', '*')
+                ->withHeader("Access-Control-Allow-Methods", implode(",", $methods));
 });
+
+/**
+ * Note: This middleware should be added last.
+ * It will not handle any exceptions/errors
+ * for middleware added after it.
+ */
+$errorMiddleware = $app->addErrorMiddleware(
+    $displayErrorDetails = true,
+    $logErrors = true,
+    $logErrorDetails = true,
+);
