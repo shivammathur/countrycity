@@ -83,7 +83,7 @@ class LocationTest extends TestCase
         $output = json_decode($location->getCities('does_not_exist'));
         $this->assertEquals($output->error, "true");
 
-        // test wrong country name
+        // test wrong source file name
         $location = new Location();
         $location::$file = '';
         $output = json_decode($location->getCities('India'));
