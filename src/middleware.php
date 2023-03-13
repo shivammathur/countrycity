@@ -12,7 +12,7 @@ $app->add(function(Request $request, RequestHandler $handler) use ($app) {
 
     // Get required methods
     $methods = [];
-    if (!empty($routes)) {
+    if (! empty($routes)) {
         $routeContext = RouteContext::fromRequest($request);
         $current_route_pattern = $routeContext->getRoute()->getPattern();
         foreach ($all_routes as $route) {
