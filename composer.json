@@ -56,7 +56,7 @@
     },
     "minimum-stability": "dev",
     "scripts": {
-        "start": "php -S localhost:8000 -t public",
+        "start": "php -S localhost:8000 index.php",
         "test": "./vendor/bin/phpunit"
     },
     "support": {
